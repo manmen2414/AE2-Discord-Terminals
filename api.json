@@ -1,0 +1,278 @@
+{
+  "elements": {
+    "items": [
+      {
+        "tags": [
+          "minecraft:item/minecraft:wool",
+          "minecraft:item/mekanism:colorable/wool",
+          "minecraft:item/minecraft:dampens_vibrations"
+        ],
+        "name": "minecraft:white_wool",
+        "amount": 2147483673,
+        "fingerprint": "F50C4020E604DC988B89FC3EA1883801",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:white_wool"
+        },
+        "displayName": "White Wool"
+      },
+      {
+        "tags": {},
+        "name": "ae2:drive",
+        "amount": 1,
+        "fingerprint": "607F49D5A2407795007219B6BA8877D0",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:drive"
+        },
+        "displayName": "ME Drive"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:beds",
+          "minecraft:item/mekanism:colorable/beds"
+        ],
+        "name": "minecraft:white_bed",
+        "amount": 74,
+        "fingerprint": "50469F952E3B6BE10BA30F7059431FC0",
+        "isCraftable": true,
+        "nbt": {
+          "id": "minecraft:white_bed"
+        },
+        "displayName": "White Bed"
+      },
+      {
+        "tags": [
+          "minecraft:item/mekanism:colorable/concrete_powder"
+        ],
+        "name": "minecraft:light_gray_concrete_powder",
+        "amount": 128,
+        "fingerprint": "F2818549540FEFD73C1860691B2C0F20",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:light_gray_concrete_powder"
+        },
+        "displayName": "Light Gray Concrete Powder"
+      },
+      {
+        "tags": [
+          "minecraft:item/mekanism:colorable/concrete_powder"
+        ],
+        "name": "minecraft:pink_concrete_powder",
+        "amount": 2,
+        "fingerprint": "4AB9A96AEFDD37C9A02A98AD8186C884",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:pink_concrete_powder"
+        },
+        "displayName": "Pink Concrete Powder"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:planks"
+        ],
+        "name": "minecraft:oak_planks",
+        "amount": 2147483685,
+        "fingerprint": "25BDFA1C403FCD54346FCCE86ABF6861",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:oak_planks"
+        },
+        "displayName": "Oak Planks"
+      },
+      {
+        "tags": [
+          "minecraft:item/mekanism:colorable/concrete_powder"
+        ],
+        "name": "minecraft:gray_concrete_powder",
+        "amount": 1,
+        "fingerprint": "2920893D78C1D54579F682E9C5C8A55E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:gray_concrete_powder"
+        },
+        "displayName": "Gray Concrete Powder"
+      },
+      {
+        "tags": [
+          "minecraft:item/mekanism:colorable/concrete_powder"
+        ],
+        "name": "minecraft:lime_concrete_powder",
+        "amount": 1,
+        "fingerprint": "FD8116ACC9A48777562ED271BD874B13",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:lime_concrete_powder"
+        },
+        "displayName": "Lime Concrete Powder"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:p2p_attunements/fluid_p2p_tunnel"
+        ],
+        "name": "minecraft:bucket",
+        "amount": 2,
+        "fingerprint": "85EBBBEB0A2754004394F1D467FC7DBA",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:bucket"
+        },
+        "displayName": "Bucket"
+      }
+    ],
+    "craftableitems": [
+      {
+        "tags": [
+          "minecraft:item/forge:rods",
+          "minecraft:item/forge:rods/wooden"
+        ],
+        "name": "minecraft:stick",
+        "amount": 0,
+        "fingerprint": "D8A7A7111BBA151021AC46B769222D0C",
+        "isCraftable": true,
+        "nbt": {
+          "id": "minecraft:stick"
+        },
+        "displayName": "Stick"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:beds",
+          "minecraft:item/mekanism:colorable/beds"
+        ],
+        "name": "minecraft:white_bed",
+        "amount": 74,
+        "fingerprint": "50469F952E3B6BE10BA30F7059431FC0",
+        "isCraftable": true,
+        "nbt": {
+          "id": "minecraft:white_bed"
+        },
+        "displayName": "White Bed"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:boats"
+        ],
+        "name": "minecraft:oak_boat",
+        "amount": 0,
+        "fingerprint": "009680CAB127D1F9851591588E5520C1",
+        "isCraftable": true,
+        "nbt": {
+          "id": "minecraft:oak_boat"
+        },
+        "displayName": "Oak Boat"
+      },
+      {
+        "tags": [
+          "minecraft:item/storagedrawers:drawers"
+        ],
+        "name": "storagedrawers:oak_full_drawers_1",
+        "amount": 0,
+        "fingerprint": "4133BED18575DA108B2CDE74FEFB1A54",
+        "isCraftable": true,
+        "nbt": {
+          "id": "storagedrawers:oak_full_drawers_1"
+        },
+        "displayName": "Oak Drawers 1x1"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:chests",
+          "minecraft:item/forge:chests/wooden",
+          "minecraft:item/ae2:p2p_attunements/item_p2p_tunnel"
+        ],
+        "name": "minecraft:chest",
+        "amount": 0,
+        "fingerprint": "532815B6655E226E2C3317456C7F03E7",
+        "isCraftable": true,
+        "nbt": {
+          "id": "minecraft:chest"
+        },
+        "displayName": "Chest"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:string"
+        ],
+        "name": "minecraft:string",
+        "amount": 0,
+        "fingerprint": "CE942F991E613FA290DB6EE7C1F75619",
+        "isCraftable": true,
+        "nbt": {
+          "id": "minecraft:string"
+        },
+        "displayName": "String"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:signs"
+        ],
+        "name": "minecraft:oak_sign",
+        "amount": 0,
+        "fingerprint": "3C929CACB3B815279B386F655C116C75",
+        "isCraftable": true,
+        "nbt": {
+          "id": "minecraft:oak_sign"
+        },
+        "displayName": "Oak Sign"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:boats",
+          "minecraft:item/minecraft:chest_boats"
+        ],
+        "name": "minecraft:oak_chest_boat",
+        "amount": 0,
+        "fingerprint": "5E9458FF00F74FB535EDE4655EE0DDAE",
+        "isCraftable": true,
+        "nbt": {
+          "id": "minecraft:oak_chest_boat"
+        },
+        "displayName": "Oak Boat with Chest"
+      }
+    ],
+    "craftablefluids": {},
+    "fluids": [
+      {
+        "name": "mekanism:heavy_water",
+        "amount": 1000,
+        "tags": [
+          "minecraft:fluid/create:no_infinite_draining",
+          "minecraft:fluid/forge:heavy_water"
+        ],
+        "isCraftable": false,
+        "displayName": "Heavy Water"
+      },
+      {
+        "name": "chemlib:mercury_fluid",
+        "amount": 1073741823,
+        "tags": {},
+        "isCraftable": false,
+        "displayName": "Mercury"
+      },
+      {
+        "name": "minecraft:lava",
+        "amount": 3000,
+        "tags": [
+          "minecraft:fluid/minecraft:lava",
+          "minecraft:fluid/create:fan_processing_catalysts/blasting",
+          "minecraft:fluid/create:bottomless/allow"
+        ],
+        "isCraftable": false,
+        "displayName": "Lava"
+      },
+      {
+        "name": "minecraft:water",
+        "amount": 2000,
+        "tags": [
+          "minecraft:fluid/create:fan_processing_catalysts/splashing",
+          "minecraft:fluid/minecraft:water",
+          "minecraft:fluid/create:bottomless/allow"
+        ],
+        "isCraftable": false,
+        "displayName": "Water"
+      }
+    ]
+  },
+  "craft": []
+}
