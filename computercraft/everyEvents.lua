@@ -14,7 +14,7 @@ return function()
                     })
                 else
                     sucess, err = meBridge.craftFluid({
-                        fingerprint = req.fingerprint, count = req.amount
+                        name = req.name, count = req.amount
                     })
                 end
                 if sucess then
@@ -38,8 +38,13 @@ return function()
         end
     end
     for index, req in ipairs(requested) do
-        if req.mode == "crafting" and not meBridge.isItemCrafting({ fingerprint = req.fingerprint }) then
-            print("Fingerprint[" .. req.fingerprint .. "] craft is end.")
+        local crafting = true;
+        if req.type == "item" then
+            crafting = meBridge.isItemCrafting({ fingerprint = req.fingerprint });
+        elseif req.type == "fluid" then
+            crafting = meBridge.isFluidCrafting({ name = req.name });
+        end
+        if req.mode == "crafting" and not crafting then
             req.mode = "finished";
             local sucessed, res = API.Request("/craft/" .. req.id, req, "PUT")
             if not sucessed then return end
@@ -51,5 +56,20 @@ return function()
     local fluids = meBridge.listFluid();
     local craftablefluids = meBridge.listCraftableFluid();
 
-    return API.ReplaceElements(items, fluids, craftableitems, craftablefluids);
+    local tagsFix = function(arr)
+        local newarr = {}
+        for index, value in ipairs(arr) do
+            if #value.tags == 0 then
+                value.tags = {};
+            end
+            newarr[#newarr + 1] = value
+        end
+        return newarr;
+    end
+    items = tagsFix(items)
+    craftablefluids = tagsFix(craftablefluids)
+    craftableitems = tagsFix(craftableitems)
+    fluids = tagsFix(fluids)
+
+    API.ReplaceElements(items, fluids, craftableitems, craftablefluids);
 end

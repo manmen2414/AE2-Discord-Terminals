@@ -59,8 +59,8 @@ return {
     Get = Get,
     Request = Request,
     ReplaceElements = function(items, fluids, craftableitems, craftablefluids)
-        return Request("/elements",
-            { items = items, craftableitems = craftableitems, fluids = fluids, craftablefluids = craftablefluids }, PUT);
+        Request("/elements",
+            { items = items, craftableitems = craftableitems, fluids = fluids, craftablefluids = craftablefluids }, POST);
     end,
     GetElements = function()
         return Get("/elements").data;
