@@ -30,11 +30,12 @@ CC:TweakedとそのアドオンAdvanced PeripheralとApplied Energistics 2を連
 (Advanced) ComputerにME Bridgeを接続し、ME BridgeにApplied Energistics 2のネットワークを接続する。
 
 Computerを開きインストーラーを実行する
-`coming soon`
+
+`wget run https://raw.githubusercontent.com/manmen2414/AE2-Discord-Terminals/main/computercraft/install.lua`
 
 ## Installing
 ```sh
-git clone https://github.com/manmen2414/AE2-Discord-Terminals.git
+git clone https://github.com/manmen2414/AE2-Discord-Terminals
 cd AE2-Discord-Terminals
 npm install
 ```

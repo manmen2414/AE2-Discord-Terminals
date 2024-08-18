@@ -21,6 +21,6 @@ else
 end
 
 repeat
-    everyEvents()
+    pcall(everyEvents)
     sleep(config.roopSecond)
 until false
