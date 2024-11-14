@@ -1,9 +1,1585 @@
 {
   "elements": {
-    "items": [],
-    "craftableitems": [],
-    "craftablefluids": [],
-    "fluids": []
+    "items": [
+      {
+        "tags": [
+          "minecraft:item/forge:ingots/iron",
+          "minecraft:item/createbigcannons:ingot_iron",
+          "minecraft:item/minecraft:trim_materials",
+          "minecraft:item/irons_spellbooks:arcane_ingot_base",
+          "minecraft:item/createdeco:internal/ingots/iron_ingots",
+          "minecraft:item/railways:internal/ingots/iron_ingots",
+          "minecraft:item/minecraft:beacon_payment_items",
+          "minecraft:item/ae2:metal_ingots",
+          "minecraft:item/forge:ingots"
+        ],
+        "name": "minecraft:iron_ingot",
+        "amount": 325644,
+        "fingerprint": "D56B971D978149D8689911F264A55A7C",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:iron_ingot"
+        },
+        "displayName": "Iron Ingot"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks/lapis",
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "minecraft:lapis_block",
+        "amount": 27100,
+        "fingerprint": "B95A53FD01EC27C14FA4AD9F5438310D",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:lapis_block"
+        },
+        "displayName": "Block of Lapis Lazuli"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:nuggets",
+          "minecraft:item/create_ore_excavation_plus:experience_items"
+        ],
+        "name": "create:experience_nugget",
+        "amount": 238095,
+        "fingerprint": "E0D724772764F43D114C04BD2D226989",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:experience_nugget"
+        },
+        "displayName": "Nugget of Experience"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:inscriber_presses"
+        ],
+        "name": "ae2:calculation_processor_press",
+        "amount": 1,
+        "fingerprint": "E1D9DF80FB059106433E9E552493B9FD",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:calculation_processor_press"
+        },
+        "displayName": "Inscriber Calculation Press"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks",
+          "minecraft:item/forge:storage_blocks/fluorite"
+        ],
+        "name": "mekanism:block_fluorite",
+        "amount": 6472,
+        "fingerprint": "4DDE6B12F4CD9131E9839EC05306067D",
+        "isCraftable": false,
+        "nbt": {
+          "id": "mekanism:block_fluorite"
+        },
+        "displayName": "Fluorite Block"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:enchanting_fuels",
+          "minecraft:item/forge:gems",
+          "minecraft:item/forge:gems/lapis",
+          "minecraft:item/minecraft:trim_materials"
+        ],
+        "name": "minecraft:lapis_lazuli",
+        "amount": 243900,
+        "fingerprint": "AC4F3DA9840E1BD78772E92588438B9C",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:lapis_lazuli"
+        },
+        "displayName": "Lapis Lazuli"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:planks"
+        ],
+        "name": "minecraft:oak_planks",
+        "amount": 2147483743,
+        "fingerprint": "25BDFA1C403FCD54346FCCE86ABF6861",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:oak_planks"
+        },
+        "displayName": "Oak Planks"
+      },
+      {
+        "tags": {},
+        "name": "mekanism:upgrade_speed",
+        "amount": 56,
+        "fingerprint": "1804A09B7927F1A6496B87FBEC00BBAB",
+        "isCraftable": false,
+        "nbt": {
+          "id": "mekanism:upgrade_speed"
+        },
+        "displayName": "Speed Upgrade"
+      },
+      {
+        "tags": [
+          "minecraft:item/projecte:collector_fuel",
+          "minecraft:item/ae2:p2p_attunements/light_p2p_tunnel",
+          "minecraft:item/forge:storage_blocks/glowstone"
+        ],
+        "name": "minecraft:glowstone",
+        "amount": 55,
+        "fingerprint": "EBE3E79AFCEBF23738002E43B2FFBC79",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:glowstone",
+          "tag": {}
+        },
+        "displayName": "Glowstone"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks/copper",
+          "minecraft:item/createdeco:internal/blocks/copper_blocks",
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "minecraft:copper_block",
+        "amount": 27067,
+        "fingerprint": "91A455879CF662DA56F48239623A5517",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:copper_block"
+        },
+        "displayName": "Block of Copper"
+      },
+      {
+        "tags": [
+          "minecraft:item/createbigcannons:gunpowder",
+          "minecraft:item/forge:gunpowder",
+          "minecraft:item/projecte:collector_fuel"
+        ],
+        "name": "minecraft:gunpowder",
+        "amount": 61359,
+        "fingerprint": "7FD6A3E4D739B082148141B1E56B5B1E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:gunpowder"
+        },
+        "displayName": "Gunpowder"
+      },
+      {
+        "tags": [
+          "minecraft:item/railways:internal/nuggets/zinc_nuggets",
+          "minecraft:item/forge:nuggets/zinc",
+          "minecraft:item/forge:nuggets",
+          "minecraft:item/createdeco:internal/nuggets/zinc_nuggets"
+        ],
+        "name": "create:zinc_nugget",
+        "amount": 2105565,
+        "fingerprint": "41FEF030CCA5DC9C611060B6FD33F0DD",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:zinc_nugget"
+        },
+        "displayName": "Zinc Nugget"
+      },
+      {
+        "tags": [
+          "minecraft:item/createbigcannons:nugget_copper",
+          "minecraft:item/forge:nuggets",
+          "minecraft:item/forge:nuggets/copper",
+          "minecraft:item/createdeco:internal/nuggets/copper_nuggets"
+        ],
+        "name": "create:copper_nugget",
+        "amount": 2192463,
+        "fingerprint": "7DBDD5ACCDB8F5944021DA3CA0485B28",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:copper_nugget"
+        },
+        "displayName": "Copper Nugget"
+      },
+      {
+        "tags": {},
+        "name": "ae2:fluix_pearl",
+        "amount": 6,
+        "fingerprint": "7A7C2BB19E75641FDAFB4376ED0B8014",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:fluix_pearl"
+        },
+        "displayName": "Fluix Pearl"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:cobblestone",
+          "minecraft:item/forge:cobblestone/normal",
+          "minecraft:item/minecraft:stone_crafting_materials",
+          "minecraft:item/minecraft:stone_tool_materials"
+        ],
+        "name": "minecraft:cobblestone",
+        "amount": 121,
+        "fingerprint": "34C0EF2C2CD360FB88A0AD2798E4354D",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:cobblestone"
+        },
+        "displayName": "Cobblestone"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:ores",
+          "minecraft:item/forge:ore_rates/singular",
+          "minecraft:item/forge:ores/netherite_scrap"
+        ],
+        "name": "minecraft:ancient_debris",
+        "amount": 6,
+        "fingerprint": "7F1F76AA549AF737CE895FFD4B6841C1",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:ancient_debris"
+        },
+        "displayName": "Ancient Debris"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:all_nether_quartz",
+          "minecraft:item/forge:gems/quartz",
+          "minecraft:item/createbigcannons:gems_quartz",
+          "minecraft:item/ae2:all_quartz",
+          "minecraft:item/minecraft:trim_materials",
+          "minecraft:item/forge:gems"
+        ],
+        "name": "minecraft:quartz",
+        "amount": 2772,
+        "fingerprint": "AF041B620147F3C4342466A9E068720E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:quartz"
+        },
+        "displayName": "Nether Quartz"
+      },
+      {
+        "tags": {},
+        "name": "ae2:speed_card",
+        "amount": 2,
+        "fingerprint": "ECF88AD04C30BBE4658301DEBA42CF1B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:speed_card"
+        },
+        "displayName": "Acceleration Card"
+      },
+      {
+        "tags": {},
+        "name": "mekanism:advanced_energy_cube",
+        "amount": 1,
+        "fingerprint": "4E7E23A2D7D2F72858AF91377B56FFC3",
+        "isCraftable": false,
+        "nbt": {
+          "id": "mekanism:advanced_energy_cube",
+          "tag": {
+            "mekData": {
+              "Items": {},
+              "componentEjector": {
+                "color2": -1,
+                "strictInput": 0,
+                "color3": -1,
+                "color4": -1,
+                "color5": -1,
+                "color0": -1,
+                "color1": -1
+              },
+              "securityMode": 0,
+              "componentConfig": {
+                "config0": {
+                  "side5": 1,
+                  "side3": 1,
+                  "side0": 4,
+                  "side4": 1,
+                  "side1": 1,
+                  "side2": 1
+                },
+                "config6": {
+                  "side5": 0,
+                  "side3": 0,
+                  "side0": 0,
+                  "side4": 0,
+                  "side1": 0,
+                  "side2": 1
+                },
+                "eject6": 0,
+                "eject0": 0
+              },
+              "owner": [
+                2103746312,
+                -718978395,
+                -2103849576,
+                1995967012
+              ],
+              "controlType": 0,
+              "EnergyContainers": [
+                {
+                  "stored": "6480000",
+                  "Container": 0
+                }
+              ]
+            }
+          }
+        },
+        "displayName": "Advanced Energy Cube"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:nuggets",
+          "minecraft:item/forge:nuggets/gold",
+          "minecraft:item/createdeco:internal/nuggets/gold_nuggets"
+        ],
+        "name": "minecraft:gold_nugget",
+        "amount": 1095510,
+        "fingerprint": "3EBD9FBB82CA212EC212DB98B6C4F8B0",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:gold_nugget"
+        },
+        "displayName": "Gold Nugget"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:gems/emerald",
+          "minecraft:item/irons_spellbooks:evocation_focus",
+          "minecraft:item/minecraft:beacon_payment_items",
+          "minecraft:item/minecraft:trim_materials",
+          "minecraft:item/forge:gems",
+          "minecraft:item/irons_spellbooks:school_focus"
+        ],
+        "name": "minecraft:emerald",
+        "amount": 32361,
+        "fingerprint": "3947F0CBE47497719B71A1404D27798D",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:emerald"
+        },
+        "displayName": "Emerald"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:piglin_loved",
+          "minecraft:item/forge:storage_blocks/gold",
+          "minecraft:item/createdeco:internal/blocks/gold_blocks",
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "minecraft:gold_block",
+        "amount": 13524,
+        "fingerprint": "386F17EE7E3602011F6F6BD00BBB2725",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:gold_block"
+        },
+        "displayName": "Block of Gold"
+      },
+      {
+        "tags": [
+          "minecraft:item/createdeco:internal/ingots/zinc_ingots",
+          "minecraft:item/forge:ingots/zinc",
+          "minecraft:item/minecraft:beacon_payment_items",
+          "minecraft:item/minecraft:trim_materials",
+          "minecraft:item/forge:ingots",
+          "minecraft:item/create:create_ingots"
+        ],
+        "name": "create:zinc_ingot",
+        "amount": 233951,
+        "fingerprint": "632BC5795C12BB4820C88B5ADB36F1F5",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:zinc_ingot"
+        },
+        "displayName": "Zinc Ingot"
+      },
+      {
+        "tags": {},
+        "name": "mekanism:cardboard_box",
+        "amount": 1,
+        "fingerprint": "64572D64988375F43AA9D1120BAA0040",
+        "isCraftable": false,
+        "nbt": {
+          "id": "mekanism:cardboard_box"
+        },
+        "displayName": "Cardboard Box"
+      },
+      {
+        "tags": {},
+        "name": "minecraft:sticky_piston",
+        "amount": 55,
+        "fingerprint": "9B0A9F6ABE0C62BFA87C6D18BB84AA70",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:sticky_piston"
+        },
+        "displayName": "Sticky Piston"
+      },
+      {
+        "tags": [
+          "minecraft:item/createbigcannons:nitro_acidifiers",
+          "minecraft:item/mekanism:alloys/basic",
+          "minecraft:item/minecraft:trim_materials",
+          "minecraft:item/projecte:collector_fuel",
+          "minecraft:item/ae2:p2p_attunements/redstone_p2p_tunnel",
+          "minecraft:item/forge:dusts",
+          "minecraft:item/mekanism:alloys",
+          "minecraft:item/createbigcannons:dusts_redstone",
+          "minecraft:item/forge:dusts/redstone"
+        ],
+        "name": "minecraft:redstone",
+        "amount": 244570,
+        "fingerprint": "4C5FA7D238DC4BDB6E5A5B455F2C2A76",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:redstone"
+        },
+        "displayName": "Redstone Dust"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:all_quartz",
+          "minecraft:item/forge:gems",
+          "minecraft:item/forge:gems/certus_quartz",
+          "minecraft:item/ae2:all_certus_quartz",
+          "minecraft:item/ars_nouveau:golem/shard"
+        ],
+        "name": "ae2:charged_certus_quartz_crystal",
+        "amount": 6103,
+        "fingerprint": "AC68DB4BE249BCC1B7520AF1F23DFD7E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:charged_certus_quartz_crystal"
+        },
+        "displayName": "Charged Certus Quartz Crystal"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks/zinc",
+          "minecraft:item/createdeco:internal/blocks/zinc_blocks",
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "create:zinc_block",
+        "amount": 25994,
+        "fingerprint": "A0EC8AD276B85C00E51D814A393A2A16",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:zinc_block"
+        },
+        "displayName": "Block of Zinc"
+      },
+      {
+        "tags": {},
+        "name": "ae2:fluix_block",
+        "amount": 1,
+        "fingerprint": "3C586E091B990B1F29BAB56179B8DA28",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:fluix_block"
+        },
+        "displayName": "Fluix Block"
+      },
+      {
+        "tags": {},
+        "name": "ae2:printed_logic_processor",
+        "amount": 64,
+        "fingerprint": "67C0C536BF3203781D16B0662EA28A79",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:printed_logic_processor"
+        },
+        "displayName": "Printed Logic Circuit"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:p2p_attunements/me_p2p_tunnel",
+          "minecraft:item/ae2:glass_cable"
+        ],
+        "name": "ae2:fluix_glass_cable",
+        "amount": 16,
+        "fingerprint": "048A168CCBEAAA0237B8371AB49D0F36",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:fluix_glass_cable"
+        },
+        "displayName": "Fluix ME Glass Cable"
+      },
+      {
+        "tags": {},
+        "name": "ae2:calculation_processor",
+        "amount": 1068,
+        "fingerprint": "818CD8FC946333E3ADA64FE1081AA4E3",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:calculation_processor"
+        },
+        "displayName": "Calculation Processor"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:all_quartz",
+          "minecraft:item/forge:gems",
+          "minecraft:item/forge:gems/certus_quartz",
+          "minecraft:item/ae2:all_certus_quartz",
+          "minecraft:item/ars_nouveau:golem/shard"
+        ],
+        "name": "ae2:certus_quartz_crystal",
+        "amount": 2147483657,
+        "fingerprint": "5C2DFD4D92DC808F644E8E6A1C4103AA",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:certus_quartz_crystal"
+        },
+        "displayName": "Certus Quartz Crystal"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:beacon_payment_items",
+          "minecraft:item/projecte:matter"
+        ],
+        "name": "projecte:dark_matter",
+        "amount": 62,
+        "fingerprint": "2886712A3C7842B91026488070B64865",
+        "isCraftable": false,
+        "nbt": {
+          "id": "projecte:dark_matter"
+        },
+        "displayName": "Dark Matter"
+      },
+      {
+        "tags": {},
+        "name": "ae2:smooth_sky_stone_block",
+        "amount": 288,
+        "fingerprint": "0F5F4EBB40C3AD37D28E3DB0BAE718A0",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:smooth_sky_stone_block"
+        },
+        "displayName": "Sky Stone Block"
+      },
+      {
+        "tags": {},
+        "name": "minecraft:iron_bars",
+        "amount": 12,
+        "fingerprint": "F2E88E0503863C3909D75232A95829E6",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:iron_bars"
+        },
+        "displayName": "Iron Bars"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:chests/wooden",
+          "minecraft:item/ae2:p2p_attunements/item_p2p_tunnel",
+          "minecraft:item/forge:chests"
+        ],
+        "name": "minecraft:chest",
+        "amount": 59,
+        "fingerprint": "532815B6655E226E2C3317456C7F03E7",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:chest"
+        },
+        "displayName": "Chest"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:gems",
+          "minecraft:item/forge:gems/fluix",
+          "minecraft:item/ae2:all_fluix"
+        ],
+        "name": "ae2:fluix_crystal",
+        "amount": 9618,
+        "fingerprint": "AA8D0DD546B97C6C636DC65F30CE64E6",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:fluix_crystal"
+        },
+        "displayName": "Fluix Crystal"
+      },
+      {
+        "tags": [
+          "minecraft:item/irons_spellbooks:arcane_ingot_base",
+          "minecraft:item/minecraft:piglin_loved",
+          "minecraft:item/ae2:metal_ingots",
+          "minecraft:item/forge:ingots",
+          "minecraft:item/minecraft:trim_materials",
+          "minecraft:item/createdeco:internal/ingots/gold_ingots",
+          "minecraft:item/minecraft:beacon_payment_items",
+          "minecraft:item/forge:ingots/gold"
+        ],
+        "name": "minecraft:gold_ingot",
+        "amount": 121785,
+        "fingerprint": "1B51DCC21F49E43282F7FA47551D4B5B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:gold_ingot"
+        },
+        "displayName": "Gold Ingot"
+      },
+      {
+        "tags": {},
+        "name": "ae2:quartz_glass",
+        "amount": 2147483661,
+        "fingerprint": "727C4AADC77241833770094D682AD446",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:quartz_glass"
+        },
+        "displayName": "Quartz Glass"
+      },
+      {
+        "tags": {},
+        "name": "mekanism:upgrade_energy",
+        "amount": 56,
+        "fingerprint": "DAE5B2BD4758A3382202F40C82AA5B87",
+        "isCraftable": false,
+        "nbt": {
+          "id": "mekanism:upgrade_energy"
+        },
+        "displayName": "Energy Upgrade"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:clay"
+        ],
+        "name": "minecraft:clay_ball",
+        "amount": 122980,
+        "fingerprint": "90E6A881D372CD9B05856D6E446A4C4F",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:clay_ball"
+        },
+        "displayName": "Clay Ball"
+      },
+      {
+        "tags": {},
+        "name": "mekanism:ultimate_logistical_transporter",
+        "amount": 8,
+        "fingerprint": "EF4EF8D18BB60C5F5A50176CA6EEDE23",
+        "isCraftable": false,
+        "nbt": {
+          "id": "mekanism:ultimate_logistical_transporter"
+        },
+        "displayName": "Ultimate Logistical Transporter"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:smart_cable",
+          "minecraft:item/ae2:p2p_attunements/me_p2p_tunnel"
+        ],
+        "name": "ae2:fluix_smart_cable",
+        "amount": 10,
+        "fingerprint": "FEE9BEF8EC1AFE06959C0EA7238F7F38",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:fluix_smart_cable"
+        },
+        "displayName": "Fluix ME Smart Cable"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks/clay"
+        ],
+        "name": "minecraft:clay",
+        "amount": 30745,
+        "fingerprint": "88DC44E951EECAF2BD9378AA8EF659A6",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:clay"
+        },
+        "displayName": "Clay"
+      },
+      {
+        "tags": [
+          "minecraft:item/createdeco:internal/ingots/copper_ingots",
+          "minecraft:item/ae2:metal_ingots",
+          "minecraft:item/forge:ingots/copper",
+          "minecraft:item/minecraft:trim_materials",
+          "minecraft:item/railways:internal/ingots/copper_ingots",
+          "minecraft:item/forge:ingots",
+          "minecraft:item/irons_spellbooks:arcane_ingot_base"
+        ],
+        "name": "minecraft:copper_ingot",
+        "amount": 243607,
+        "fingerprint": "21CAC17F931141DEB71B94D62CC43F0D",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:copper_ingot"
+        },
+        "displayName": "Copper Ingot"
+      },
+      {
+        "tags": [
+          "minecraft:item/railways:internal/nuggets/iron_nuggets",
+          "minecraft:item/forge:nuggets",
+          "minecraft:item/createbigcannons:nugget_iron",
+          "minecraft:item/createdeco:internal/nuggets/iron_nuggets",
+          "minecraft:item/forge:nuggets/iron"
+        ],
+        "name": "minecraft:iron_nugget",
+        "amount": 2928220,
+        "fingerprint": "D38DB430FE26F4BC460CC6FE8C0EA91E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:iron_nugget"
+        },
+        "displayName": "Iron Nugget"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:alloys",
+          "minecraft:item/mekanism:alloys/atomic",
+          "minecraft:item/mekanism:alloys",
+          "minecraft:item/forge:alloys/ultimate"
+        ],
+        "name": "mekanism:alloy_atomic",
+        "amount": 60,
+        "fingerprint": "7E8BC62B1F5A85105DD416A23D5E106B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "mekanism:alloy_atomic"
+        },
+        "displayName": "Atomic Alloy"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:beacon_payment_items",
+          "minecraft:item/forge:gems",
+          "minecraft:item/forge:gems/diamond",
+          "minecraft:item/minecraft:trim_materials"
+        ],
+        "name": "minecraft:diamond",
+        "amount": 76239,
+        "fingerprint": "92DBC7BACE9E9CE709DA470C48524CFB",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:diamond"
+        },
+        "displayName": "Diamond"
+      },
+      {
+        "tags": {},
+        "name": "ae2:printed_calculation_processor",
+        "amount": 64,
+        "fingerprint": "54413B9717AD18B56B36943230F373F2",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:printed_calculation_processor"
+        },
+        "displayName": "Printed Calculation Circuit"
+      },
+      {
+        "tags": {},
+        "name": "ae2:logic_processor",
+        "amount": 978,
+        "fingerprint": "362065D5FCE799DCC25C093C6F531E76",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:logic_processor"
+        },
+        "displayName": "Logic Processor"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:inscriber_presses"
+        ],
+        "name": "ae2:engineering_processor_press",
+        "amount": 1,
+        "fingerprint": "A30B47BAA0731D8EAD27EB59DB0D1C32",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:engineering_processor_press"
+        },
+        "displayName": "Inscriber Engineering Press"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:lectern_books",
+          "minecraft:item/ars_elemental:curio_bag_item",
+          "minecraft:item/minecraft:bookshelf_books"
+        ],
+        "name": "ars_nouveau:worn_notebook",
+        "amount": 1,
+        "fingerprint": "AC7C4CE6682962C05A7CB7A42CDFB26B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ars_nouveau:worn_notebook"
+        },
+        "displayName": "Worn Notebook"
+      },
+      {
+        "tags": {},
+        "name": "create:large_cogwheel",
+        "amount": 4,
+        "fingerprint": "BFDAD1DBB4C776ED91EE65EF67BD2A7D",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:large_cogwheel"
+        },
+        "displayName": "Large Cogwheel"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "create:experience_block",
+        "amount": 26455,
+        "fingerprint": "0797E7BE9414F89563EB66C78D50FE79",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:experience_block"
+        },
+        "displayName": "Block of Experience"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:dusts",
+          "minecraft:item/forge:dusts/fluix"
+        ],
+        "name": "ae2:fluix_dust",
+        "amount": 1007,
+        "fingerprint": "D1E6008389907B4EA0B8B4F6DC5C82BD",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:fluix_dust"
+        },
+        "displayName": "Fluix Dust"
+      },
+      {
+        "tags": {},
+        "name": "projecte:transmutation_tablet",
+        "amount": 1,
+        "fingerprint": "F9E7A8E521255896B0EA94787DC69F86",
+        "isCraftable": false,
+        "nbt": {
+          "id": "projecte:transmutation_tablet"
+        },
+        "displayName": "Transmutation Tablet"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:can_remove_color"
+        ],
+        "name": "minecraft:snowball",
+        "amount": 2,
+        "fingerprint": "147B9764BF5D2E2D75C8E93CDA8FD426",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:snowball"
+        },
+        "displayName": "Snowball"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:workbench",
+          "minecraft:item/railways:internal/workbench",
+          "minecraft:item/refinedstorage:crafting_tables",
+          "minecraft:item/c:workbench"
+        ],
+        "name": "minecraft:crafting_table",
+        "amount": 131,
+        "fingerprint": "CC377A28007F457D969B39271D0B609B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:crafting_table"
+        },
+        "displayName": "Crafting Table"
+      },
+      {
+        "tags": {},
+        "name": "ae2:singularity",
+        "amount": 2,
+        "fingerprint": "7560D20AC56A6F1B5F0D30993BBAFFE3",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:singularity"
+        },
+        "displayName": "Singularity"
+      },
+      {
+        "tags": {},
+        "name": "create:cogwheel",
+        "amount": 6,
+        "fingerprint": "887BD47523C49704DA0C3CEB40C1F557",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:cogwheel"
+        },
+        "displayName": "Cogwheel"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:illuminated_panel"
+        ],
+        "name": "ae2:semi_dark_monitor",
+        "amount": 62,
+        "fingerprint": "1BBEA6AF1F02E500101A7DE4151ABD91",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:semi_dark_monitor"
+        },
+        "displayName": "Illuminated Panel"
+      },
+      {
+        "tags": [
+          "minecraft:item/appliede:emc_interface"
+        ],
+        "name": "appliede:emc_interface",
+        "amount": 1,
+        "fingerprint": "6F9C34C80B25E60917B2A90C43DB13DB",
+        "isCraftable": false,
+        "nbt": {
+          "id": "appliede:emc_interface"
+        },
+        "displayName": "ME Transmutation Interface"
+      },
+      {
+        "tags": [
+          "minecraft:item/createdeco:internal/blocks/iron_blocks",
+          "minecraft:item/forge:storage_blocks/iron",
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "minecraft:iron_block",
+        "amount": 36150,
+        "fingerprint": "CF416B878741D06C6521D995CBEFF04C",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:iron_block"
+        },
+        "displayName": "Block of Iron"
+      },
+      {
+        "tags": [
+          "minecraft:item/createbigcannons:dust_glowstone",
+          "minecraft:item/projecte:collector_fuel",
+          "minecraft:item/forge:dusts/glowstone",
+          "minecraft:item/forge:dusts"
+        ],
+        "name": "minecraft:glowstone_dust",
+        "amount": 2147483648,
+        "fingerprint": "1EF2E908494EC90F4A9B6AEF1AFDB4C4",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:glowstone_dust"
+        },
+        "displayName": "Glowstone Dust"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:ore_bearing_ground/stone",
+          "minecraft:item/createbigcannons:stone",
+          "minecraft:item/forge:stone"
+        ],
+        "name": "minecraft:stone",
+        "amount": 59,
+        "fingerprint": "3F3C4B62E59766BBD956E742CB9F995E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:stone"
+        },
+        "displayName": "Stone"
+      },
+      {
+        "tags": [
+          "minecraft:item/mekanism:colorable/wool",
+          "minecraft:item/forge:wool",
+          "minecraft:item/forge:wool/light_gray",
+          "minecraft:item/minecraft:dampens_vibrations",
+          "minecraft:item/minecraft:wool"
+        ],
+        "name": "minecraft:light_gray_wool",
+        "amount": 128,
+        "fingerprint": "136A5E6128D0B62AAD058189E7ED4ACA",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:light_gray_wool"
+        },
+        "displayName": "Light Gray Wool"
+      },
+      {
+        "tags": {},
+        "name": "ae2:printed_engineering_processor",
+        "amount": 66,
+        "fingerprint": "9A3EC50993943AAC8B4CA71BCDE74B56",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:printed_engineering_processor"
+        },
+        "displayName": "Printed Engineering Circuit"
+      },
+      {
+        "tags": {},
+        "name": "minecraft:flint",
+        "amount": 80250,
+        "fingerprint": "C89A70B4DE3D5AEDF57B0BFEB9F7595B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:flint"
+        },
+        "displayName": "Flint"
+      },
+      {
+        "tags": {},
+        "name": "ae2:engineering_processor",
+        "amount": 1060,
+        "fingerprint": "C47FE4873B50235AE150D17C6F9117DA",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:engineering_processor"
+        },
+        "displayName": "Engineering Processor"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:rods",
+          "minecraft:item/forge:rods/wooden"
+        ],
+        "name": "minecraft:stick",
+        "amount": 60,
+        "fingerprint": "D8A7A7111BBA151021AC46B769222D0C",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:stick"
+        },
+        "displayName": "Stick"
+      },
+      {
+        "tags": {},
+        "name": "pipez:item_pipe",
+        "amount": 16,
+        "fingerprint": "0BD40C8AC0B642DB853BE428F9714034",
+        "isCraftable": false,
+        "nbt": {
+          "id": "pipez:item_pipe"
+        },
+        "displayName": "Item Pipe"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:dirt",
+          "minecraft:item/ars_nouveau:whirlisprig/denied_drop"
+        ],
+        "name": "minecraft:dirt",
+        "amount": 71,
+        "fingerprint": "93CD093102F41711D16B950BFA9CC82D",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:dirt"
+        },
+        "displayName": "Dirt"
+      },
+      {
+        "tags": {},
+        "name": "minecraft:piston",
+        "amount": 56,
+        "fingerprint": "EE9CAFEE64229BF12D5AE69E55428352",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:piston"
+        },
+        "displayName": "Piston"
+      },
+      {
+        "tags": {},
+        "name": "ae2:annihilation_core",
+        "amount": 1,
+        "fingerprint": "0EF1A20A6D9C0C9847FDE56B7B8A76EF",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:annihilation_core"
+        },
+        "displayName": "Annihilation Core"
+      },
+      {
+        "tags": {},
+        "name": "ae2:controller",
+        "amount": 19,
+        "fingerprint": "3F4D32DED1ADBFB7C2F956E46E2FB771",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:controller"
+        },
+        "displayName": "ME Controller"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks",
+          "minecraft:item/forge:storage_blocks/quartz"
+        ],
+        "name": "minecraft:quartz_block",
+        "amount": 680,
+        "fingerprint": "D1D4A82FE65E651F5202180ED41F6647",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:quartz_block"
+        },
+        "displayName": "Block of Quartz"
+      },
+      {
+        "tags": {},
+        "name": "create:shaft",
+        "amount": 50,
+        "fingerprint": "703397F1155F135765D8BA4D9C9DF1BE",
+        "isCraftable": false,
+        "nbt": {
+          "id": "create:shaft"
+        },
+        "displayName": "Shaft"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks/emerald",
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "minecraft:emerald_block",
+        "amount": 3595,
+        "fingerprint": "C880CDED23102D96257086D2C3D2F1EB",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:emerald_block"
+        },
+        "displayName": "Block of Emerald"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:p2p_attunements/fluid_p2p_tunnel",
+          "minecraft:item/ae2:can_remove_color"
+        ],
+        "name": "minecraft:water_bucket",
+        "amount": 1,
+        "fingerprint": "0DFD096DA6BFBA9C9A0A9F91D69FB04B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:water_bucket"
+        },
+        "displayName": "Water Bucket"
+      },
+      {
+        "tags": [
+          "minecraft:item/projecte:collector_fuel",
+          "minecraft:item/forge:storage_blocks/coal",
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "minecraft:coal_block",
+        "amount": 13386,
+        "fingerprint": "2698B6AF0370E385626F1ED39C6A2718",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:coal_block"
+        },
+        "displayName": "Block of Coal"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:coals",
+          "minecraft:item/projecte:collector_fuel"
+        ],
+        "name": "minecraft:coal",
+        "amount": 120480,
+        "fingerprint": "D992C0CF53137A19BCB732E2D651C119",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:coal"
+        },
+        "displayName": "Coal"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:p2p_attunements/redstone_p2p_tunnel",
+          "minecraft:item/projecte:collector_fuel",
+          "minecraft:item/forge:storage_blocks",
+          "minecraft:item/forge:storage_blocks/redstone"
+        ],
+        "name": "minecraft:redstone_block",
+        "amount": 27176,
+        "fingerprint": "67464215DAA2D5B721D313D1D787F000",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:redstone_block"
+        },
+        "displayName": "Block of Redstone"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:inscriber_presses"
+        ],
+        "name": "ae2:logic_processor_press",
+        "amount": 1,
+        "fingerprint": "3CA2DA6F689C681C321247E0016FDF4E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:logic_processor_press"
+        },
+        "displayName": "Inscriber Logic Press"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:lectern_books",
+          "minecraft:item/irons_spellbooks:patchouli_drop",
+          "minecraft:item/minecraft:bookshelf_books"
+        ],
+        "name": "patchouli:guide_book",
+        "amount": 1,
+        "fingerprint": "FF85B1F03160B4E5C74783F735E5ED64",
+        "isCraftable": false,
+        "nbt": {
+          "id": "patchouli:guide_book",
+          "tag": {
+            "patchouli:book": "apotheosis:apoth_chronicle"
+          }
+        },
+        "displayName": "Chronicle of Shadows"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:lectern_books",
+          "minecraft:item/irons_spellbooks:patchouli_drop",
+          "minecraft:item/minecraft:bookshelf_books"
+        ],
+        "name": "patchouli:guide_book",
+        "amount": 1,
+        "fingerprint": "3179B9F5EBC277881DBEE75B8397573E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "patchouli:guide_book",
+          "tag": {
+            "patchouli:book": "irons_spellbooks:iss_guide_book"
+          }
+        },
+        "displayName": "Iron's Guidebook"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:lectern_books",
+          "minecraft:item/irons_spellbooks:patchouli_drop",
+          "minecraft:item/minecraft:bookshelf_books"
+        ],
+        "name": "patchouli:guide_book",
+        "amount": 1,
+        "fingerprint": "7FF76B48E6DD6B341FE4FFDB5165E58F",
+        "isCraftable": false,
+        "nbt": {
+          "id": "patchouli:guide_book",
+          "tag": {
+            "patchouli:book": "advancedperipherals:manual"
+          }
+        },
+        "displayName": "Advanced Peripherals"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:vegetables/onion",
+          "minecraft:item/forge:fermentable",
+          "minecraft:item/forge:crops",
+          "minecraft:item/forge:crops/onion",
+          "minecraft:item/rftoolsutility:living/living",
+          "minecraft:item/forge:vegetables",
+          "minecraft:item/tconstruct:seeds",
+          "minecraft:item/rftoolsutility:living/highyield",
+          "minecraft:item/sereneseasons:spring_crops",
+          "minecraft:item/sereneseasons:autumn_crops"
+        ],
+        "name": "farmersdelight:onion",
+        "amount": 3,
+        "fingerprint": "252281A303AFF35B066C73AC00119E7C",
+        "isCraftable": false,
+        "nbt": {
+          "id": "farmersdelight:onion"
+        },
+        "displayName": "Onion"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:gems",
+          "minecraft:item/forge:gems/fluorite"
+        ],
+        "name": "mekanism:fluorite_gem",
+        "amount": 58253,
+        "fingerprint": "52ADB37EA85ED6FA193FC35F9E8258DF",
+        "isCraftable": false,
+        "nbt": {
+          "id": "mekanism:fluorite_gem"
+        },
+        "displayName": "Fluorite"
+      },
+      {
+        "tags": {},
+        "name": "ae2:quartz_fiber",
+        "amount": 2147483714,
+        "fingerprint": "A42B7509FEE3499DFC03FFF8881240DC",
+        "isCraftable": false,
+        "nbt": {
+          "id": "ae2:quartz_fiber"
+        },
+        "displayName": "Quartz Fiber"
+      },
+      {
+        "tags": [
+          "minecraft:item/storagedrawers:drawers"
+        ],
+        "name": "storagedrawers:oak_full_drawers_1",
+        "amount": 1,
+        "fingerprint": "CFE2DC7C03FE7544B446AED1FC38330B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "storagedrawers:oak_full_drawers_1",
+          "tag": {
+            "tile": {
+              "Drawers": [
+                {
+                  "Item": {
+                    "id": "minecraft:redstone_block",
+                    "Count": 1
+                  },
+                  "Count": 16
+                }
+              ],
+              "Upgrades": {}
+            }
+          }
+        },
+        "displayName": "Oak Drawers 1x1"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:glass/silica",
+          "minecraft:item/forge:glass",
+          "minecraft:item/mekanism:colorable/glass",
+          "minecraft:item/createdeco:internal/colorless_glass",
+          "minecraft:item/forge:glass/colorless",
+          "minecraft:item/createbigcannons:glass"
+        ],
+        "name": "minecraft:glass",
+        "amount": 209,
+        "fingerprint": "6E9D07CC25D66EA388E2FA719DF8680D",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:glass"
+        },
+        "displayName": "Glass"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:beacon_payment_items",
+          "minecraft:item/projecte:matter"
+        ],
+        "name": "projecte:red_matter",
+        "amount": 64,
+        "fingerprint": "F764C2CD753479CB2D872BFB8D913F26",
+        "isCraftable": false,
+        "nbt": {
+          "id": "projecte:red_matter"
+        },
+        "displayName": "Red Matter"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:storage_blocks/diamond",
+          "minecraft:item/forge:storage_blocks"
+        ],
+        "name": "minecraft:diamond_block",
+        "amount": 8464,
+        "fingerprint": "ACBC2A644CDB24C9D06BEC1FA4FF798B",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:diamond_block"
+        },
+        "displayName": "Block of Diamond"
+      },
+      {
+        "tags": {},
+        "name": "entangled:block",
+        "amount": 2147483647,
+        "fingerprint": "E0E629BD9052235BDF770D0DF7D669B2",
+        "isCraftable": false,
+        "nbt": {
+          "id": "entangled:block"
+        },
+        "displayName": "Entangled Block"
+      },
+      {
+        "tags": [
+          "minecraft:item/minecraft:wooden_pressure_plates"
+        ],
+        "name": "minecraft:oak_pressure_plate",
+        "amount": 1,
+        "fingerprint": "96F21E5BAA9DA8B93BE56E6913F1B82E",
+        "isCraftable": false,
+        "nbt": {
+          "id": "minecraft:oak_pressure_plate"
+        },
+        "displayName": "Oak Pressure Plate"
+      }
+    ],
+    "craftableitems": [
+      {
+        "tags": {},
+        "name": "ae2:cell_component_256k",
+        "amount": 0,
+        "fingerprint": "A516154C7524E77AB308F4414CFD8D12",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:cell_component_256k"
+        },
+        "displayName": "256k ME Storage Component"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:interface",
+          "minecraft:item/ae2:p2p_attunements/item_p2p_tunnel"
+        ],
+        "name": "ae2:interface",
+        "amount": 0,
+        "fingerprint": "4FD0BFB9A25A1120D44164BFCB1CE863",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:interface"
+        },
+        "displayName": "ME Interface"
+      },
+      {
+        "tags": {},
+        "name": "ae2:cell_component_64k",
+        "amount": 0,
+        "fingerprint": "293B10D0C3AD29DE4DDC9747E6019491",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:cell_component_64k"
+        },
+        "displayName": "64k ME Storage Component"
+      },
+      {
+        "tags": [
+          "minecraft:item/forge:dusts",
+          "minecraft:item/forge:dusts/fluix"
+        ],
+        "name": "ae2:fluix_dust",
+        "amount": 1007,
+        "fingerprint": "D1E6008389907B4EA0B8B4F6DC5C82BD",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:fluix_dust"
+        },
+        "displayName": "Fluix Dust"
+      },
+      {
+        "tags": {},
+        "name": "ae2:annihilation_core",
+        "amount": 1,
+        "fingerprint": "0EF1A20A6D9C0C9847FDE56B7B8A76EF",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:annihilation_core"
+        },
+        "displayName": "Annihilation Core"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:p2p_attunements/item_p2p_tunnel"
+        ],
+        "name": "ae2:storage_bus",
+        "amount": 0,
+        "fingerprint": "708D51A701ED23097EDD1BB19CEC7D8D",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:storage_bus"
+        },
+        "displayName": "ME Storage Bus"
+      },
+      {
+        "tags": {},
+        "name": "ae2:me_p2p_tunnel",
+        "amount": 0,
+        "fingerprint": "AF580A1C9D5003C687CC90E7E3C5D0B2",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:me_p2p_tunnel"
+        },
+        "displayName": "ME P2P Tunnel"
+      },
+      {
+        "tags": {},
+        "name": "ae2:controller",
+        "amount": 19,
+        "fingerprint": "3F4D32DED1ADBFB7C2F956E46E2FB771",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:controller"
+        },
+        "displayName": "ME Controller"
+      },
+      {
+        "tags": [
+          "minecraft:item/ae2:pattern_provider"
+        ],
+        "name": "ae2:pattern_provider",
+        "amount": 0,
+        "fingerprint": "65041FAF7970D7A08033CF8F6A269AFD",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:pattern_provider"
+        },
+        "displayName": "ME Pattern Provider"
+      },
+      {
+        "tags": {},
+        "name": "ae2:molecular_assembler",
+        "amount": 0,
+        "fingerprint": "890175F2A899A16B7A7B0B26C74AA72E",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:molecular_assembler"
+        },
+        "displayName": "Molecular Assembler"
+      },
+      {
+        "tags": {},
+        "name": "ae2:cell_component_1k",
+        "amount": 0,
+        "fingerprint": "A383A70E0AAA656BF25CB954E1A84F35",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:cell_component_1k"
+        },
+        "displayName": "1k ME Storage Component"
+      },
+      {
+        "tags": {},
+        "name": "ae2:cell_component_16k",
+        "amount": 0,
+        "fingerprint": "E8A6FE89D329372051256332B5B44EA5",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:cell_component_16k"
+        },
+        "displayName": "16k ME Storage Component"
+      },
+      {
+        "tags": {},
+        "name": "ae2:formation_core",
+        "amount": 0,
+        "fingerprint": "3A4D8EF7DCB4815BB30EBE457580A7D8",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:formation_core"
+        },
+        "displayName": "Formation Core"
+      },
+      {
+        "tags": {},
+        "name": "ae2:cell_component_4k",
+        "amount": 0,
+        "fingerprint": "9CF883B36A5B20A408A28DB889B559D0",
+        "isCraftable": true,
+        "nbt": {
+          "id": "ae2:cell_component_4k"
+        },
+        "displayName": "4k ME Storage Component"
+      }
+    ],
+    "craftablefluids": {},
+    "fluids": {}
   },
   "craft": []
 }

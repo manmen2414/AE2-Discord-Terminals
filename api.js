@@ -1,7 +1,5 @@
 require("dotenv").config();
-const fs = require("fs");
 const http = require("http");
-const queryString = require("querystring")
 
 /**
  * 
@@ -19,6 +17,7 @@ const Request = (at, data, method) => new Promise(async (s, f) => {
                     method: method,
                     headers: {
                         'Content-Type': 'application/json',
+                        'ngrok-skip-browser-warning': 'true',
                         'Content-Length': '' + content.length,
                         'X-Header': 'X-Header',
                     },

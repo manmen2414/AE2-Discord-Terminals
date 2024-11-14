@@ -9,10 +9,10 @@ require("dotenv").config({ "path": "../.env" })
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("terminal") //全て英語小文字
-        .setDescription("ME遠隔Discordターミナル")
+        .setName("craft") //全て英語小文字
+        .setDescription("作業台クラフト※JEI?そんなのねえよ※プレビュー？そんなのねえよ")
     ,
-    id: "gtel",
+    id: "crft",
     /**@param {ChatInputCommandInteraction} interaction  */
     async execute(interaction) {
         await CreateEmbed(interaction);

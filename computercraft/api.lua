@@ -21,7 +21,7 @@ local function getFromEnv(key)
     end
 end
 local GET = "GET"; local POST = "POST"; local PUT = "PUT"; local DELETE = "DELETE";
-local CTJson = { ["Content-Type"] = "application/json" }
+local CTJson = { ["Content-Type"] = "application/json", ["ngrok-skip-browser-warning"] = "true" }
 local URL = getFromEnv("API_URL")
 local Request = function(at, data, method)
     http.request { url = URL .. at, body = textutils.serialiseJSON(data), headers = CTJson, method = method }
