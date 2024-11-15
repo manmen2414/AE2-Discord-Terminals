@@ -1,0 +1,70 @@
+@media (prefers-color-scheme:dark) {
+    body {
+        background-color: #222;
+        color: white;
+    }
+
+    a {
+        color: skyblue;
+    }
+
+    .block {
+        background-color: #555;
+        border: 1px solid white;
+    }
+
+    header {
+        background-color: #555;
+    }
+}
+
+@media (prefers-color-scheme:light) {
+    body {
+        background-color: whitesmoke;
+        color: black;
+    }
+
+    a {
+        color: blue;
+    }
+
+    .block {
+        background-color: #ddd;
+        border: 1px solid black;
+    }
+
+    header {
+        background-color: #ddd;
+    }
+}
+
+body {
+
+    font-family: "Murecho", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+header {
+    position: fixed;
+    border: 1px double black;
+    padding: 0px;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+
+h1 {
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.right {
+    position: fixed;
+    right: 20px;
+}
+
+.block {
+    padding: 2px;
+}
