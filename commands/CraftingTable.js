@@ -62,6 +62,7 @@ module.exports = {
     }
 };
 
+
 setInterval(async () => {
     const crafted = await api.Get("/craft");
     crafted.forEach((e) => {
@@ -77,6 +78,7 @@ setInterval(async () => {
         }
     })
 }, 5000)
+
 /**
  * 
  * @param {ChatInputCommandInteraction} interaction 

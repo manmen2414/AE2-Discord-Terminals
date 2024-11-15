@@ -11,7 +11,7 @@ local api = require("api")
 local everyEvents = require("everyEvents")
 print("Get api and Events...")
 local isValidURL = http.checkURL(api.URL)
-local Response = http.get(api.URL)
+local Response = http.get(api.URL .. "/ping")
 if isValidURL and Response then
     print("API Check Sucess.")
 elseif isValidURL then

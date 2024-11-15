@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const dotenv = require("dotenv")
 const jsonServer = require('json-server')
+const api = require("./api")
 const startedService = {
     bot: false,
     jsonserver: false
@@ -9,14 +10,33 @@ const startedService = {
 const debug = true;
 
 const server = jsonServer.create()
-const router = jsonServer.router("api.json")
 const middlewares = jsonServer.defaults()
-server.use(middlewares)
-server.use(router)
+server.use(jsonServer.bodyParser);
+server.use((req, res, next) => {
+    const url = req.url;
+    if (url === "/elements" && req.method === "POST") {
+        const body = req.body;
+        const items = (body.items.length ?? 0) + (body.fluids.length ?? 0);
+        if (startedService.bot) {
+            client.user.setActivity({
+                name: `${items}要素数のMEネットワーク`,
+                type: Discord.ActivityType.Playing
+            })
+        }
+    } else if (url === "/ping") {
+        console.log("Ping Client!");
+        return res.send("Pong!");
+    }
+    next();
+});
+server.use(jsonServer.router("api.json"))
+
 server.listen(3000, () => {
     console.log('JSON Server is running on 3000')
     startedService.jsonserver = true;
 })
+
+
 
 dotenv.config();
 let commands = {};
