@@ -10,26 +10,45 @@
     <link type="text/css" rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/icon.ico">
     <script src="/request.js"></script>
+    <script src="/util/popup.js" defer></script>
 </head>
 
 <body>
+    <script>
+        const body = document.querySelector("body");
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        body.classList.add(isDark ? "dark" : "light")
+    </script>
 
-    <header>
-        <div class="right" style="padding: 15px;">
-            <img src="/min.svg" alt="" style="width: 24px;height: 24px;">
-            <a style="font-size: 20px;" href="https://github.com/manmen2414/AE2-Discord-Terminals">GITHUB</a>
-        </div>
-        <h1>ME Web Terminal</h1>
-    </header>
+    <div id="main-document">
+        <header>
+            <div class="right" style="padding: 15px;">
+                <img src="/min.svg" alt="" style="width: 24px;height: 24px;">
+                <a style="font-size: 20px;" href="https://github.com/manmen2414/AE2-Discord-Terminals">GITHUB</a>
+            </div>
+            <h1>ME Web Terminal</h1>
+        </header>
 
-    <div class="top_gui gui" style="margin-top: 65px;">
-        <div>
-            <span class="block">
-                <span style="color: palevioletred;">Status:
-                    <span id="status" style="color: red;">Offline
+        <div class="top_gui gui" style="margin-top: 65px;">
+            <div>
+                <span class="block">
+                    <span style="color: palevioletred;">Status:
+                        <span id="status" style="color: red;">Offline
+                        </span>
                     </span>
+                </span>
+
+                <span class="block">
+                    <button
+                        onclick="new Popup(`Test`,`<button onclick='alert(\`This is test Button\`);Popup.showing.close(true);'>test</button>`).show()">test</button>
+                </span>
+            </div>
         </div>
+        <div class="popup-bg-cover"></div>
     </div>
+    <div id="popup" style="display:none;">
+    </div>
+
 </body>
 
 </html>
