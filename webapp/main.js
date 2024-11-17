@@ -137,10 +137,10 @@ setInterval(() => {
             if (!meElement) return;
             if (element.mode === "finished") {
                 meElement.mode = "finished";
-                APIRequest(`/craft/${v.id}`, "DELETE")
+                APIRequest(`/craft/${element.id}`, "DELETE")
             } else if (element.mode === "error") {
                 meElement.mode = `error${element.reason}`
-                APIRequest(`/craft/${v.id}`, "DELETE")
+                APIRequest(`/craft/${element.id}`, "DELETE")
             }
         })
     });

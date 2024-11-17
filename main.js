@@ -18,6 +18,9 @@ server.use((req, res, next) => {
         console.log("Ping Client!");
         return res.send("Pong!");
     } else if (url.startsWith("/elements") || url.startsWith("/craft")) {
+        if (url.startsWith("/craft") && req.method === "POST") {
+            console.log(`Craft Request: ${req.body.amount}x ${req.body.name}`)
+        }
         next();
     } else {
         /**@type {string[]} */
