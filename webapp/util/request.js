@@ -15,9 +15,9 @@ function IsJsonParseable(text) {
  * @param {string} method 
  * @param {string} data 
  * @param {object} headers
- * @returns {object|string}
+ * @returns {Promise<object|string>}
  */
-function Request(url, method = "GET", data = "", headers = defaultHeaders) {
+function APIRequest(url, method = "GET", data = "", headers = defaultHeaders) {
     return new Promise((resolve, reject) => {
         //urlが/から始まるならhttp://~~~.comの部分を付け加える
         url = url.startsWith("/") ? location.href.split("/").slice(0, 3).join("/") + url : url;
@@ -41,10 +41,13 @@ function Request(url, method = "GET", data = "", headers = defaultHeaders) {
     })
 }
 
-
+/**
+ * 
+ * @returns {Promise<rawMEElement[]>}
+ */
 function GetElements() {
     return new Promise((s, r) => {
-        Request("/elements").then((json) => {
+        APIRequest("/elements").then((json) => {
             let { items, fluids, craftableitems, craftablefluids } = json;
             if (!items.length) items = [];
             if (!fluids.length) fluids = [];

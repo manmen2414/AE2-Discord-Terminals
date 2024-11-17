@@ -16,6 +16,10 @@ body.dark .block {
     border: 1px solid white;
 }
 
+body.dark button[disabled] {
+    color: rgba(0, 0, 0, .5);
+}
+
 body.dark header {
     background-color: #555;
 }
@@ -36,6 +40,10 @@ body.light a {
 body.light .block {
     background-color: #ddd;
     border: 1px solid black;
+}
+
+body.light button[disabled] {
+    color: rgba(255, 255, 255, .5);
 }
 
 body.light header {
@@ -67,7 +75,7 @@ body {
 #popup {
     position: fixed;
     top: 10%;
-    margin: 0%  0% auto;
+    left: 2%;
     z-index: 20;
     background-color: #aabbcc;
     width: fit-content;
@@ -75,6 +83,8 @@ body {
     border-radius: 5px;
     animation: zoomIn 0.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
+
+
 
 #popup>.popup-title {
     color: #700;
@@ -99,7 +109,7 @@ header {
 
 h1 {
     padding-left: 20px;
-    font-size:25px;
+    font-size: 25px;
 }
 
 .right {

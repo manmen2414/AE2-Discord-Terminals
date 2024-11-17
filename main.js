@@ -11,7 +11,7 @@ server.use((req, res, next) => {
     if (url === "/ping") {
         console.log("Ping Client!");
         return res.send("Pong!");
-    } else if (url === "/elements" || url === "/craft") {
+    } else if (url.startsWith("/elements") || url.startsWith("/craft")) {
         next();
     } else {
         /**@type {string[]} */
