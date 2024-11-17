@@ -61,6 +61,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    font-size: 20px;
 }
 
 #popup {
@@ -98,7 +99,7 @@ header {
 
 h1 {
     padding-left: 20px;
-    font-size: 20px;
+    font-size:25px;
 }
 
 .right {
