@@ -5,6 +5,12 @@ const api = require("./api")
 
 const server = jsonServer.create()
 const middlewares = jsonServer.defaults()
+
+if (!fs.existsSync("./api.json")) {
+    fs.copyFileSync("./api.json.template", "./api.json")
+    console.log("Copyed template json")
+}
+
 server.use(jsonServer.bodyParser);
 server.use((req, res, next) => {
     const url = req.url;
