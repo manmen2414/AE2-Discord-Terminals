@@ -52,20 +52,24 @@ body.light header {
     z-index: 10;
 }
 
-body {
+#main-doument {
     z-index: 0;
+}
+
+body {
     font-family: "Murecho", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
 }
 
 #popup {
-    position: sticky;
+    position: fixed;
+    top: 10%;
+    margin: 0%  0% auto;
     z-index: 20;
-    background-color: #abc;
+    background-color: #aabbcc;
     width: fit-content;
-    margin: 0 auto;
     color: black;
     border-radius: 5px;
     animation: zoomIn 0.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;

@@ -9,8 +9,9 @@
         rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/icon.ico">
-    <script src="/request.js"></script>
+    <script src="/main.js"></script>
     <script src="/util/popup.js" defer></script>
+    <script src="/util/request.js"></script>
 </head>
 
 <body>
@@ -39,9 +40,10 @@
                 </span>
 
                 <span class="block">
-                    <button
-                        onclick="new Popup(`Test`,`<button onclick='alert(\`This is test Button\`);Popup.showing.close(true);'>test</button>`).show()">test</button>
+                    <button onclick="new Popup(`Test`,`br`.repeat(20)).show()">test</button>
                 </span>
+            </div>
+            <div>
             </div>
         </div>
         <div class="popup-bg-cover"></div>
