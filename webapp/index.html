@@ -38,15 +38,15 @@
 
         <div class="top_gui gui" style="margin-top: 80px;">
             <div>
-                <span class="block">
+                <span class="block clickable" onclick="toggleRequestEnable()" title="クリックでリクエストの一時停止/再開を切り替え">
                     <span style="color: palevioletred;">Status:
                         <span id="status" style="color: red;">Offline
                         </span>
                     </span>
                 </span>
 
-                <span class="block">
-                    <button onclick="new Popup(`Test`,`br`.repeat(20)).show()">test</button>
+                <span class="block" id="counts">
+                    Loading...
                 </span>
             </div>
             <div id="elements">

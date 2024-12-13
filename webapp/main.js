@@ -66,11 +66,14 @@ class MEElement {
         craftButton.innerText = "CRAFT"
         if (this.isCraftable)
             craftButton.onclick = () => {
-                this.craft(parseInt(prompt("仮：いくつクラフトする？"))).then(() => {
-                    alert(this.displayName + "のクラフトが完了しました！")
-                }).catch((ex) => {
-                    alert(`[${this.displayName}] Craft Error: ${ex}`)
-                })
+                const count = prompt(`${this.displayName}をいくつクラフトする？`);
+                if (/^[0-9]+$/.test(count))
+                    this.craft(parseInt(count)).then(() => {
+                        alert(this.displayName + "のクラフトが完了しました！")
+                    }).catch((ex) => {
+                        alert(`[${this.displayName}] Craft Error: ${ex}`)
+                    })
+                else alert(`入力値 ${count} は自然数ではありません！`)
             }
         else {
             craftButton.disabled = true
@@ -130,7 +133,20 @@ class MEElement {
     }
 }
 
+let requestEnable = true;
+let online = false;
+function reloadStatus() {
+    document.querySelector("#status").innerHTML = requestEnable ? (online ? "Online" : "Offline") : "Pause";
+    document.querySelector("#status").style.color = requestEnable ? (online ? "lightgreen" : "red") : "lightblue";
+}
+
+function toggleRequestEnable() {
+    requestEnable = !requestEnable;
+    reloadStatus()
+}
+
 setInterval(() => {
+    if (!requestEnable) return;
     APIRequest("/craft").then((val) => {
         val.forEach((element) => {
             const meElement = Crafting.find((v) => v.fingerprint === element.fingerprint)
@@ -145,8 +161,8 @@ setInterval(() => {
         })
     });
     GetElements().then((v) => {
-        document.querySelector("#status").innerHTML = "Online";
-        document.querySelector("#status").style.color = "lightgreen";
+        online = true;
+        reloadStatus()
         const div = document.createElement("div");
         v.forEach(element => {
             const meElement = new MEElement(element);
@@ -155,8 +171,9 @@ setInterval(() => {
         const elementsDiv = document.querySelector("#elements");
         elementsDiv.innerHTML = "";
         elementsDiv.insertAdjacentElement("beforeend", div);
+        document.querySelector("#counts").innerHTML = `${v.length} elements`
     }).catch((ex) => {
-        document.querySelector("#status").innerHTML = "Offline";
-        document.querySelector("#status").style.color = "red";
+        online = false;
+        reloadStatus()
     })
 }, 2500)
