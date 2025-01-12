@@ -3,8 +3,7 @@
 FROM node:14.4.0-buster
 
 # Create app directory
-WORKDIR /usr/src/app
-
+WORKDIR /
 # Install app dependencies (package.json and package-lock.json)
 COPY package*.json ./
 RUN npm install
