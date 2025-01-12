@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Listen port
-EXPOSE 3000
+EXPOSE 50697
 
 # Run Node.js
 CMD [ "node", "main.js" ]
