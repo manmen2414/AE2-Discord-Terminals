@@ -35,7 +35,7 @@ Computerを開きインストーラーを実行する
 
 ## Installing
 ```sh
-git clone https://github.com/manmen2414/AE2-Discord-Terminals
+git clone https://github.com/takoyakidath/AE2-Discord-Terminals.git
 cd AE2-Discord-Terminals
 npm install
 ```
