@@ -30,7 +30,8 @@ CC:TweakedとそのアドオンAdvanced PeripheralとApplied Energistics 2を連
 (Advanced) ComputerにME Bridgeを接続し、ME BridgeにApplied Energistics 2のネットワークを接続する。
 
 Computerを開きインストーラーを実行する
-
+wget run `https://raw.githubusercontent.com/takoyakidath/AE2-Discord-Terminals/refs/heads/main/computercraft/install.lua`
+行けなかったら
 `wget run https://raw.githubusercontent.com/manmen2414/AE2-Discord-Terminals/main/computercraft/install.lua`
 
 ## Installing
