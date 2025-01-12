@@ -59,7 +59,7 @@ class MEElement {
 
     toDisplay() {
         const showText = `${this.amount}${this.type === "item" ? "x" : "mB"} ` +
-            `${this.displayName} (${Object.entries(this.nbt).length} NBTs)`;
+            `${this.displayName} (${Object.entries(this.nbt ?? {}).length} NBTs)`;
 
         const HTMLObject = document.createElement("li");
         const craftButton = document.createElement("button");

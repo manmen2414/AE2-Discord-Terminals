@@ -1,7 +1,7 @@
 const fs = require("fs");
-const dotenv = require("dotenv")
 const jsonServer = require('json-server')
 const api = require("./api")
+require("dotenv").config()
 
 const server = jsonServer.create()
 const middlewares = jsonServer.defaults()
@@ -50,5 +50,4 @@ server.listen(3000, () => {
 
 
 
-dotenv.config();
 process.on('uncaughtException', console.error)
