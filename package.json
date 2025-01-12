@@ -5,7 +5,7 @@
     "json-server": "^0.17.4"
   },
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js -p"
   },
   "repository": {
     "url": "https://github.com/manmen2414/AE2-Discord-Terminals.git"
