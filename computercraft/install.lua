@@ -19,10 +19,10 @@ if checkYes(ans) then
     ans = read();
     if checkYes(ans) then
         shell.run(
-            "wget https://raw.githubusercontent.com/manmen2414/AE2-Discord-Terminals/main/computercraft/startup.lua")
+            "wget https://raw.githubusercontent.com/takoyakidath/AE2-Discord-Terminals/refs/heads/main/computercraft/startup.lua")
     else
         shell.run(
-            "wget https://raw.githubusercontent.com/manmen2414/AE2-Discord-Terminals/main/computercraft/startup.lua AE2DTerminal.lua")
+            "wget https://raw.githubusercontent.com/takoyakidath/AE2-Discord-Terminals/refs/heads/main/computercraft/startup.lua AE2DTerminal.lua")
     end
     shell.run(
         "wget https://raw.githubusercontent.com/manmen2414/AE2-Discord-Terminals/main/computercraft/everyEvents.lua")
