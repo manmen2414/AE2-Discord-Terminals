@@ -44,8 +44,8 @@ server.use((req, res, next) => {
 });
 server.use(jsonServer.router("api.json"))
 
-server.listen(3000, () => {
-    console.log('JSON Server is running on 3000')
+server.listen(50697, () => {
+    console.log('JSON Server is running on 50697')
 })
 
 
