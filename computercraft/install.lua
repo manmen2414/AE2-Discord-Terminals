@@ -25,7 +25,7 @@ if checkYes(ans) then
             "wget https://raw.githubusercontent.com/takoyakidath/AE2-Discord-Terminals/refs/heads/main/computercraft/startup.lua AE2DTerminal.lua")
     end
     shell.run(
-        "wget https://raw.githubusercontent.com/manmen2414/AE2-Discord-Terminals/main/computercraft/everyEvents.lua")
+        "wget https://raw.githubusercontent.com/takoyakidath/AE2-Discord-Terminals/refs/heads/main/computercraft/everyEvents.lua")
     shell.run("wget https://raw.githubusercontent.com/manmen2414/AE2-Discord-Terminals/main/computercraft/api.lua")
     term.write("API URL: ")
     ans = read();
