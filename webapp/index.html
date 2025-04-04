@@ -30,6 +30,10 @@
     <div id="popup" style="display:none;">
     </div>
     <header>
+        <button onclick="toggleMenu()">
+            <img src="/assets/hamburger-menu-white.svg" alt="メニュー" id="hamburger-menu">
+        </button>
+
         <div class="right">
             <img src="/assets/min.svg" alt="" style="width: 24px;height: 24px;">
             <a style="font-size: 25px;" href="https://github.com/manmen2414/AE2-Discord-Terminals">GITHUB</a>
@@ -38,7 +42,7 @@
     </header>
 
     <div class="blocks-countainer">
-        <div class="block clickable" onclick="toggleRequestEnable()" title="クリックでリクエストの一時停止/再開を切り替え">
+        <div class="block clickable" onclick="Terminal.instance.toggleRequestEnable()" title="クリックでリクエストの一時停止/再開を切り替え">
             <span style="color: palevioletred;display: flex;">Status:
                 <span id="status">Offline
                 </span>
@@ -53,8 +57,8 @@
     <div class="viewer">
         <div id="elements">
         </div>
-        <div id="sidepanel">
-            <input type="text" id="search" onchange="Terminal.instance.display()">
+        <div id="sidepanel" class="sidepanel-closed">
+            <input type="text" id="search" onchange="Terminal.instance.display()" placeholder="Search">
         </div>
     </div>
 

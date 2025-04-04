@@ -269,6 +269,20 @@ class Terminal {
     ).innerHTML = `Found ${searchedElementList.length}`;
   }
 }
+function toggleMenu() {
+  const deactiveMenu = document.querySelector("#hamburger-menu");
+  const activedMenu = document.querySelector("#hamburger-menu-active");
+  /**@type {Element} */ //@ts-ignore
+  const sidepanel = document.querySelector("#sidepanel");
+  if (!!deactiveMenu) {
+    deactiveMenu.id = "hamburger-menu-active";
+    sidepanel.className = "";
+  }
+  if (!!activedMenu) {
+    activedMenu.id = "hamburger-menu";
+    sidepanel.className = "sidepanel-closed";
+  }
+}
 
 setInterval(() => {
   Terminal.instance.tick();
