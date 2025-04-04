@@ -67,6 +67,7 @@ class MEElement {
     if (this.isCraftable)
       craftButton.onclick = () => {
         const count = prompt(`${this.displayName}をいくつクラフトする？`);
+        if (count === null) return;
         if (/^[0-9]+$/.test(count))
           this.craft(parseInt(count))
             .then(() => {
@@ -197,4 +198,3 @@ function tick() {
 setInterval(() => {
   tick();
 }, 2500);
-tick();
