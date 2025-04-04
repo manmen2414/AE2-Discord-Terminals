@@ -136,14 +136,24 @@ body {
 
 header {
   position: fixed;
+  display: inline;
   border: 1px double black;
   padding: 0px;
   top: 0;
   width: 100%;
   left: 0;
+  height: 50px;
+}
+header > .right {
+  position: absolute;
+  top: 6px;
+  right: 15px;
 }
 
-h1 {
+.title {
+  position: absolute;
+  top: 6px;
+  font-weight: bold;
   padding-left: 20px;
   font-size: 25px;
 }
@@ -159,6 +169,7 @@ h1 {
 }
 
 .blocks-countainer {
+  margin-top: 60px;
   display: flex;
 }
 
