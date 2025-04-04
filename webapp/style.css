@@ -1,147 +1,156 @@
 body.dark {
-    background-color: #222;
-    color: white;
+  background-color: #222;
+  color: white;
 }
 
 body.dark button {
-    color: white;
+  color: white;
 }
 
 body.dark a {
-    color: skyblue;
+  color: skyblue;
 }
 
 body.dark .block {
-    background-color: #555;
-    border: 1px solid white;
+  background-color: #555;
+  border: 1px solid white;
 }
 
 body.dark button[disabled] {
-    color: rgba(0, 0, 0, .5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 body.dark header {
-    background-color: #555;
+  background-color: #555;
 }
 
 body.light {
-    background-color: whitesmoke;
-    color: black;
+  background-color: whitesmoke;
+  color: black;
 }
 
 body.dark light {
-    color: white;
+  color: white;
 }
 
 body.light a {
-    color: blue;
+  color: blue;
 }
 
 body.light .block {
-    background-color: #ddd;
-    border: 1px solid black;
+  background-color: #ddd;
+  border: 1px solid black;
 }
 
 body.light button[disabled] {
-    color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 body.light header {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
-#main-document[inert]>.popup-bg-cover {
-    position: fixed;
-    background: rgba(0, 0, 0, .5);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
+#main-document[inert] > .popup-bg-cover {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 #main-doument {
-    z-index: 0;
+  z-index: 0;
 }
 
 body {
-    font-family: "Murecho", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 20px;
+  font-family: "Murecho", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
 }
 
 #popup {
-    position: fixed;
-    top: 10%;
-    left: 2%;
-    z-index: 20;
-    background-color: #aabbcc;
-    width: fit-content;
-    color: black;
-    border-radius: 5px;
-    animation: zoomIn 0.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  justify-content: left;
+  position: fixed;
+  top: 2%;
+  z-index: 20;
+  background-color: #aabbcc;
+  width: fit-content;
+  color: black;
+  font-size: 30px;
+  border-radius: 5px;
+  animation: fadeIn 0.3s ease 0s 1 normal backwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-
-
-#popup>.popup-title {
-    color: #700;
-    background-color: rgba(255, 255, 255, 0.274);
-    padding: 1px 10px 1px 10px;
-    border-radius: 5px 5px 0 0;
+.popup-delete {
+  color: gray !important;
+  font-size: 25px;
 }
 
-#popup>.popup-text {
-    margin: 1px 10px 1px 10px;
-    padding: 0px 2px 4px 2px;
+#popup > .popup-message {
+  display: flex;
+  color: #000;
+  font-size: 25px;
+  padding: 5px 30px 5px 20px;
 }
 
 header {
-    position: fixed;
-    border: 1px double black;
-    padding: 0px;
-    top: 0;
-    width: 100%;
-    left: 0;
+  position: fixed;
+  border: 1px double black;
+  padding: 0px;
+  top: 0;
+  width: 100%;
+  left: 0;
 }
 
 h1 {
-    padding-left: 20px;
-    font-size: 25px;
+  padding-left: 20px;
+  font-size: 25px;
 }
 
 .right {
-    position: fixed;
-    right: 20px;
+  position: fixed;
+  right: 20px;
 }
 
 .block {
-    padding: 2px 6px 2px 6px;
-    margin: 0 2px 0 2px;
+  padding: 2px 6px 2px 6px;
+  margin: 0 2px 0 2px;
 }
 
 button {
-    background: transparent;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 .clickable {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @keyframes zoomIn {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
