@@ -99,10 +99,9 @@ body {
   font-size: 20px;
 }
 
-#popup {
+.popup {
   justify-content: left;
   position: fixed;
-  top: 2%;
   z-index: 20;
   background-color: #aabbcc;
   width: fit-content;
@@ -127,7 +126,7 @@ body {
   font-size: 25px;
 }
 
-#popup > .popup-message {
+.popup > .popup-message {
   display: flex;
   color: #000;
   font-size: 25px;
