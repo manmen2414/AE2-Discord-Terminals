@@ -1,7 +1,7 @@
 class Popup {
   /**@type {Popup[]} */
   static showing = [];
-  static WAIT_TIME = 5;
+  static DEFAULT_WAIT_TIME = 5;
   static FADEOUT_TIME = 2;
   static INTERVAL_MILLISECONDS = 200;
   static secondIntervalCounds = 1000 / Popup.INTERVAL_MILLISECONDS;
@@ -13,6 +13,8 @@ class Popup {
     this.innerHTML = innerHTML;
     /**@type {function} */
     this.callback = () => {};
+    /**@type {number} 0だと削除しない。 */
+    this.waitTime = Popup.DEFAULT_WAIT_TIME;
     /**@type {HTMLDivElement} */
     this.popupElement = null;
     /**@type {number} */
@@ -23,6 +25,13 @@ class Popup {
     this.intervalSecond = 0;
   }
   /**
+   * @param {string} text
+   * @param {number} time
+   */
+  static Popup(text, time = Popup.DEFAULT_WAIT_TIME) {
+    return new Popup().setInnerText(text).setWaitTime(time).show();
+  }
+  /**
    * @param {string} innerHTML
    */
   setInnerHTML(innerHTML) {
@@ -30,22 +39,17 @@ class Popup {
     return this;
   }
   /**
+   * @param {boolean} waitTime
+   */
+  setWaitTime(waitTime) {
+    this.waitTime = waitTime;
+    return this;
+  }
+  /**
    * @param {string} innerText
    */
   setInnerText(innerText) {
-    const uniqueChars = {
-      "<": "&lt;",
-      ">": "&gt;",
-      "&": "&amp;",
-      '"': "&quot;",
-      "'": "&#39;",
-      " ": "&nbsp;",
-    };
-    let repedInnerText = innerText;
-    Object.entries(uniqueChars).forEach((arr) => {
-      repedInnerText.replaceAll(arr[0], arr[1]);
-    });
-    this.innerHTML = repedInnerText;
+    this.innerHTML = EncodeHTMLText(innerText);
     return this;
   }
 
@@ -59,7 +63,8 @@ class Popup {
     };
     const popup = this.popupElement;
     const { clientWidth, clientHeight } = document.body;
-    popup.style.left = `${(clientWidth - popup.clientWidth) / 2}px`;
+    const left = (clientWidth - popup.clientWidth) / 2;
+    popup.style.left = `${left < 0 ? 0 : left}px`;
     popup.style.right = `10px`;
     popup.style.top = `${clientHeight * 0.05 + getPopupPosTop()}px`;
   }
@@ -94,14 +99,16 @@ class Popup {
       .insertAdjacentElement("beforebegin", popup);
     this.movePopup();
     //表示後の待ち時間
+    if (this.waitTime === 0) return this;
     this.timeoutId = setInterval(() => {
       this.intervalSecond += 1 / Popup.secondIntervalCounds;
-      if (this.intervalSecond > Popup.WAIT_TIME)
+      if (this.intervalSecond > this.waitTime)
         popup.style.opacity -=
           1 / (Popup.secondIntervalCounds * Popup.FADEOUT_TIME);
-      if (this.intervalSecond > Popup.WAIT_TIME + Popup.FADEOUT_TIME)
+      if (this.intervalSecond > this.waitTime + Popup.FADEOUT_TIME)
         this.close(false);
     }, Popup.INTERVAL_MILLISECONDS);
+    return this;
   }
 
   close(arg) {

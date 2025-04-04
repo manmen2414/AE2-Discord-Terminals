@@ -56,6 +56,37 @@ class MEElement {
       .replace(/%f/g, this.fingerprint);
   }
 
+  craftRequest(count) {
+    if (!count) return;
+    if (/^[0-9]+$/.test(count))
+      this.craft(parseInt(count))
+        .then(() => {
+          Popup.Popup("✔" + this.displayName + "のクラフトが完了しました！");
+        })
+        .catch((ex) => {
+          alert(`[${this.displayName}] Craft Error: ${ex}`);
+        });
+    else {
+      Popup.Popup(`入力値 ${count} は自然数ではありません！`);
+      return;
+    }
+    Popup.Popup(`リクエストしました！`, 3);
+  }
+
+  craftPrompt() {
+    const id = this.name.replace(":", "-");
+    const popupInput = `<input id="cv-${id}" type="number">`;
+    const popupButton = `<button id="cb-${id}">Enter</button>`;
+    const popupDiv = `<div class="craft-request">${popupInput}${popupButton}</div>`;
+    const text = EncodeHTMLText(`${this.displayName}をいくつクラフトする？`);
+    const popup = new Popup(`${text}<br>${popupDiv}`)
+      .setWaitTime(0)
+      .show((c) => this.craftRequest(c));
+    document.querySelector(`#cb-${id}`).onclick = () => {
+      popup.close(document.querySelector(`#cv-${id}`).value ?? null);
+    };
+  }
+
   toDisplay() {
     const showText =
       `${this.amount}${this.type === "item" ? "x" : "mB"} ` +
@@ -64,20 +95,7 @@ class MEElement {
     const HTMLObject = document.createElement("li");
     const craftButton = document.createElement("button");
     craftButton.classList.add("craftbutton");
-    if (this.isCraftable)
-      craftButton.onclick = () => {
-        const count = prompt(`${this.displayName}をいくつクラフトする？`);
-        if (count === null) return;
-        if (/^[0-9]+$/.test(count))
-          this.craft(parseInt(count))
-            .then(() => {
-              alert(this.displayName + "のクラフトが完了しました！");
-            })
-            .catch((ex) => {
-              alert(`[${this.displayName}] Craft Error: ${ex}`);
-            });
-        else alert(`入力値 ${count} は自然数ではありません！`);
-      };
+    if (this.isCraftable) craftButton.onclick = () => this.craftPrompt();
     else {
       craftButton.disabled = true;
     }
