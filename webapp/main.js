@@ -198,3 +198,6 @@ function tick() {
 setInterval(() => {
   tick();
 }, 2500);
+document.addEventListener("DOMContentLoaded", () => {
+  tick();
+});
