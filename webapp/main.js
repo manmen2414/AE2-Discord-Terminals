@@ -41,7 +41,7 @@ class MEElement {
     /**@type {boolean} */
     this.isCraftable = rawData.isCraftable;
     /**@type {object} */
-    this.nbt = rawData.nbt;
+    this.nbt = rawData.nbt.tag ?? {};
     /**@type {string} */
     this.displayName = rawData.displayName;
     /**@type {"normal"|"request"|"finished"|"error"} */
@@ -62,7 +62,7 @@ class MEElement {
     if (/^[0-9]+$/.test(count))
       this.craft(parseInt(count))
         .then(() => {
-          Popup.Popup("✔" + this.displayName + "のクラフトが完了しました！");
+          Popup.Popup("✅" + this.displayName + "のクラフトが完了しました！");
         })
         .catch((ex) => {
           alert(`[${this.displayName}] Craft Error: ${ex}`);
@@ -90,19 +90,47 @@ class MEElement {
   }
 
   toDisplay() {
-    const showText =
-      `${this.amount}${this.type === "item" ? "x" : "mB"} ` +
-      `${this.displayName} (${Object.entries(this.nbt ?? {}).length} NBTs)`;
-
     const HTMLObject = document.createElement("li");
-    const craftButton = document.createElement("button");
-    craftButton.classList.add("craftbutton");
-    if (this.isCraftable) craftButton.onclick = () => this.craftPrompt();
-    else {
-      craftButton.disabled = true;
+    const buttons = [
+      document.createElement("button"),
+      document.createElement("button"),
+      document.createElement("button"),
+    ];
+    buttons[0].classList.add("element-copy");
+    buttons[0].onclick = () => {
+      navigator.clipboard
+        .writeText(this.name)
+        .then(() => {
+          Popup.Popup("IDをコピーしました！", 2);
+        })
+        .catch(() => {
+          Popup.Popup(this.name);
+        });
+    };
+    buttons[1].classList.add("element-info");
+    //#TODO: 情報をサイドメニューに表示するメソッドの実装
+    buttons[1].onclick = () => this.showInfo();
+    buttons[2].classList.add("craftbutton");
+    if (this.isCraftable) buttons[2].onclick = () => this.craftPrompt();
+    else buttons[2].disabled = true;
+
+    const nbts = Object.entries(this.nbt ?? {}).length;
+    /**@type {HTMLSpanElement[]} */
+    const spans = [
+      document.createElement("span"),
+      document.createElement("span"),
+      document.createElement("span"),
+    ];
+    spans[0].classList.add("element-count");
+    spans[0].innerText = `${this.amount}${this.type === "item" ? "x" : "mB"} `;
+    spans[1].innerText = this.displayName;
+    if (nbts !== 0) {
+      spans[2].classList.add("element-nbt");
+      spans[2].innerText = `+${nbts}`;
+      spans[2].title = JSON.stringify(this.nbt ?? {});
     }
-    HTMLObject.innerHTML = EncodeHTMLText(showText);
-    HTMLObject.insertAdjacentElement("afterbegin", craftButton);
+    buttons.forEach((span) => HTMLObject.appendChild(span));
+    spans.forEach((span) => HTMLObject.appendChild(span));
 
     return HTMLObject;
   }
@@ -283,10 +311,11 @@ function toggleMenu() {
     sidepanel.className = "sidepanel-closed";
   }
 }
+const TICK_TIME = 1000;
 
 setInterval(() => {
   Terminal.instance.tick();
-}, 2500);
+}, TICK_TIME);
 document.addEventListener("DOMContentLoaded", () => {
   Terminal.instance.tick();
 });

@@ -38,6 +38,14 @@ body.dark .craftbutton {
   background-image: url("/assets/hammer-white.svg");
 }
 
+body.dark .element-copy {
+  background-image: url("/assets/copy-white.svg");
+}
+
+body.dark .element-info {
+  background-image: url("/assets/infomation-black.svg");
+}
+
 body.dark #sidepanel {
   background-color: #333;
 }
@@ -47,9 +55,17 @@ body.dark #sidepanel > button {
   border: #fff 2px solid;
   color: #fff;
 }
+body.dark .element-count {
+  color: #8b8;
+}
+
+body.dark #hamburger-menu-active,
+body.dark #hamburger-menu {
+  background-image: url("/assets/hamburger-menu-white.svg");
+}
 
 body.light {
-  background-color: whitesmoke;
+  background-color: #eee;
   color: black;
 }
 
@@ -83,6 +99,15 @@ body.light .status-paused {
 body.light .craftbutton {
   background-image: url("/assets/hammer-black.svg");
 }
+
+body.light .element-copy {
+  background-image: url("/assets/copy-black.svg");
+}
+
+body.light .element-info {
+  background-image: url("/assets/infomation-white.svg");
+}
+
 body.light #sidepanel {
   background-color: #ccc;
 }
@@ -92,6 +117,14 @@ body.light #sidepanel > button {
   border: #000 2px solid;
   color: #000;
 }
+body.light .element-count {
+  color: #282;
+}
+body.light #hamburger-menu-active,
+body.light #hamburger-menu {
+  background-image: url("/assets/hamburger-menu-black.svg");
+}
+
 body {
   font-family: "Murecho", sans-serif;
   font-optical-sizing: auto;
@@ -141,11 +174,12 @@ body {
   transform: translateX(100%) !important;
 }
 #sidepanel {
+  opacity: 0.9;
   transform: translateX(0%);
   position: fixed;
   right: 10px;
   top: 55px;
-  width: 30%;
+  width: 400px;
   padding: 20px;
   height: calc(100% - 105px);
   transition: transform 0.5s ease-in-out;
@@ -157,6 +191,7 @@ body {
 }
 #search {
   border-radius: 20px;
+  width: 97%;
 }
 
 #elements {
@@ -185,6 +220,7 @@ header {
   width: 100%;
   left: 0;
   height: 50px;
+  z-index: 1;
 }
 header > .right {
   position: absolute;
@@ -200,13 +236,15 @@ header > .right {
   font-size: 25px;
   text-align: center;
   width: 100%;
-  z-index: -1;
+  z-index: 3;
 }
 #hamburger-menu-active,
 #hamburger-menu {
+  position: relative;
   width: 30px;
   height: 30px;
-  margin: 10px;
+  margin: 11px;
+  z-index: 5;
   transition: rotate 0.5s ease-out;
 }
 #hamburger-menu {
@@ -214,6 +252,13 @@ header > .right {
 }
 #hamburger-menu-active {
   rotate: 90deg;
+}
+#craftings-button {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  z-index: 5;
+  background-image: url("/assets/hammer-white.svg");
 }
 
 @keyframes rotate90 {
@@ -249,8 +294,11 @@ button {
   cursor: pointer;
 }
 .craftbutton:disabled {
-  opacity: 0;
+  opacity: 0.1;
 }
+
+.element-info,
+.element-copy,
 .craftbutton {
   position: relative;
   margin-right: 5px;
@@ -258,9 +306,17 @@ button {
   width: 20px;
   height: 20px;
 }
-
 .clickable {
   cursor: pointer;
+}
+
+.element-nbt {
+  font-size: 70%;
+  color: #777;
+}
+
+.viewer {
+  z-index: 0;
 }
 
 @keyframes zoomIn {
@@ -275,16 +331,8 @@ button {
   }
 }
 
-@media screen and (max-width: 1000px) {
-  #sidepanel {
-    width: 50%;
-  }
-}
 @media screen and (max-width: 600px) {
   .popup-message {
     font-size: 20px !important;
-  }
-  #sidepanel {
-    width: 80%;
   }
 }

@@ -27,11 +27,11 @@
         body.classList.add(isDark ? "dark" : "light")
     </script>
 
-    <div id="popup" style="display:none;">
-    </div>
     <header>
-        <button onclick="toggleMenu()">
-            <img src="/assets/hamburger-menu-white.svg" alt="メニュー" id="hamburger-menu">
+        <button onclick="toggleMenu()" id="hamburger-menu">
+        </button>
+        <!--#TODO: クラフト中のアイテムを表示するメソッドの実装-->
+        <button onclick="Terminal.instance.showCraftings()" id="craftings-button">
         </button>
 
         <div class="right">

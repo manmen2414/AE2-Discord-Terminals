@@ -95,7 +95,7 @@ class Popup {
     popupMessaege.insertAdjacentElement("afterbegin", deleteButton);
     popup.appendChild(popupMessaege);
     document
-      .querySelector("#main-document")
+      .querySelector("header")
       .insertAdjacentElement("beforebegin", popup);
     this.movePopup();
     //表示後の待ち時間
