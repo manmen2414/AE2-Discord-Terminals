@@ -1,3 +1,4 @@
+//@ts-check
 /**
  * @typedef {{"type":string,"tags":string[],"name":string,"amount":number,"fingerprint":string,"isCraftable":boolean,"nbt":object,"displayName":string}} rawMEElement
  */
@@ -27,7 +28,7 @@ let Crafting = [];
 class MEElement {
   /**@param {rawMEElement} rawData */
   constructor(rawData) {
-    /**@type {"item"|"fluid"} */
+    /**@type {string} */
     this.type = rawData.type;
     /**@type {string[]} */
     this.tags = rawData.tags;
@@ -81,8 +82,9 @@ class MEElement {
     const text = EncodeHTMLText(`${this.displayName}をいくつクラフトする？`);
     const popup = new Popup(`${text}<br>${popupDiv}`)
       .setWaitTime(0)
-      .show((c) => this.craftRequest(c));
+      .show((c) => this.craftRequest(c)); //@ts-ignore
     document.querySelector(`#cb-${id}`).onclick = () => {
+      //@ts-ignore
       popup.close(document.querySelector(`#cv-${id}`).value ?? null);
     };
   }
@@ -140,7 +142,7 @@ class MEElement {
               (v) => v.fingerprint !== this.fingerprint
             );
             clearInterval(id);
-            resolve();
+            resolve(false);
           } else if (this.mode.startsWith("error")) {
             this.mode = "normal";
             Crafting = Crafting.filter(
@@ -155,45 +157,14 @@ class MEElement {
     });
   }
 }
-class Terminal {
-  constructor() {}
-  tick() {}
-}
 
-let requestEnable = true;
-let online = false;
-/**@enum {number} */
-const Statuses = {
-  ONLINE: 0,
-  OFFLINE: 1,
-  PAUSED: 2,
-};
-function getStatus() {
-  return requestEnable
-    ? online
-      ? Statuses.ONLINE
-      : Statuses.OFFLINE
-    : Statuses.PAUSED;
-}
-function reloadStatus() {
-  const status = document.querySelector("#status");
-  status.innerHTML = [
-    `<div class="status-online">Online</div>`,
-    `<div class="status-offline">Offline</div>`,
-    `<div class="status-paused">Paused</div>`,
-  ][getStatus()];
-}
-
-function toggleRequestEnable() {
-  requestEnable = !requestEnable;
-  reloadStatus();
-}
 /**
  * @param {MEElement[]} elementList
  * @param {string} search
  */
 function filterByJEISearch(elementList, search = "") {
   const searchFilters = search.split(" ");
+  if (searchFilters[0].length === 0) return elementList;
   const searchMod = [];
   const searchName = [];
   searchFilters.forEach((e) => {
@@ -216,63 +187,92 @@ function filterByJEISearch(elementList, search = "") {
   });
 }
 
-/**
- * @param {MEElement[]} elementList
- * @param {string} search
- */
-function display(elementList, search = "") {
-  const div = document.createElement("div");
-  const searchedElementList = filterByJEISearch(elementList, search);
-  searchedElementList.forEach((element) => {
-    div.appendChild(element.toDisplay());
-  });
-  const elementsDiv = document.querySelector("#elements");
-  elementsDiv.innerHTML = "";
-  elementsDiv.appendChild(div);
-  document.querySelector(
-    "#counts"
-  ).innerHTML = `Found ${searchedElementList.length}`;
-}
-let searchText = "";
-function search() {
-  searchText = document.querySelector("#search").value;
-}
+/**@enum {number} */
+const Statuses = {
+  ONLINE: 0,
+  OFFLINE: 1,
+  PAUSED: 2,
+};
+class Terminal {
+  /**@type {Terminal} */
+  static instance = new Terminal();
+  /**@type {MEElement[]} */
+  gotElements = [];
+  requestEnable = true;
+  online = false;
+  constructor() {}
+  tick() {
+    if (!this.requestEnable) return;
+    APIRequest("/craft").then((val) => {
+      val.forEach((element) => {
+        const meElement = Crafting.find(
+          (v) => v.fingerprint === element.fingerprint
+        );
+        if (!meElement) return;
+        if (element.mode === "finished") {
+          meElement.mode = "finished";
+          APIRequest(`/craft/${element.id}`, "DELETE");
+        } else if (element.mode === "error") {
+          meElement.mode = `error`;
+          APIRequest(`/craft/${element.id}`, "DELETE");
+        }
+      });
+    });
+    GetElements()
+      .then((v) => {
+        this.online = true;
+        this.gotElements = v.map((e) => new MEElement(e));
+        this.reloadStatus();
+        this.display();
+      })
+      .catch((ex) => {
+        this.online = false;
+        this.reloadStatus();
+      });
+  }
 
-function tick() {
-  if (!requestEnable) return;
-  APIRequest("/craft").then((val) => {
-    val.forEach((element) => {
-      const meElement = Crafting.find(
-        (v) => v.fingerprint === element.fingerprint
-      );
-      if (!meElement) return;
-      if (element.mode === "finished") {
-        meElement.mode = "finished";
-        APIRequest(`/craft/${element.id}`, "DELETE");
-      } else if (element.mode === "error") {
-        meElement.mode = `error${element.reason}`;
-        APIRequest(`/craft/${element.id}`, "DELETE");
-      }
+  getStatus() {
+    return this.requestEnable
+      ? this.online
+        ? Statuses.ONLINE
+        : Statuses.OFFLINE
+      : Statuses.PAUSED;
+  }
+  reloadStatus() {
+    /**@type {Element} */ //@ts-ignore
+    const status = document.querySelector("#status");
+    status.innerHTML = [
+      `<div class="status-online">Online</div>`,
+      `<div class="status-offline">Offline</div>`,
+      `<div class="status-paused">Paused</div>`,
+    ][this.getStatus()];
+  }
+  toggleRequestEnable() {
+    this.requestEnable = !this.requestEnable;
+    this.reloadStatus();
+  }
+  display() {
+    //@ts-ignore
+    const search = document.querySelector("#search").value;
+    const div = document.createElement("div");
+    const searchedElementList = filterByJEISearch(this.gotElements, search);
+    searchedElementList.forEach((element) => {
+      div.appendChild(element.toDisplay());
     });
-  });
-  GetElements()
-    .then((v) => {
-      online = true;
-      reloadStatus();
-      display(
-        v.map((e) => new MEElement(e)),
-        searchText
-      );
-    })
-    .catch((ex) => {
-      online = false;
-      reloadStatus();
-    });
+    /**@type {Element} */ //@ts-ignore
+    const elementsDiv = document.querySelector("#elements");
+    elementsDiv.innerHTML = "";
+    elementsDiv.appendChild(div);
+    //@ts-ignore
+    document.querySelector(
+      "#counts"
+    ).innerHTML = `Found ${searchedElementList.length}`;
+  }
 }
 
 setInterval(() => {
-  tick();
+  Terminal.instance.tick();
 }, 2500);
 document.addEventListener("DOMContentLoaded", () => {
-  tick();
+  Terminal.instance.tick();
 });

@@ -39,7 +39,7 @@ class Popup {
     return this;
   }
   /**
-   * @param {boolean} waitTime
+   * @param {number} waitTime
    */
   setWaitTime(waitTime) {
     this.waitTime = waitTime;
