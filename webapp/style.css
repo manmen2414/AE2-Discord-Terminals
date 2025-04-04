@@ -24,6 +24,16 @@ body.dark header {
   background-color: #555;
 }
 
+body.dark .status-online {
+  color: #8b8;
+}
+body.dark .status-offline {
+  color: #b88;
+}
+body.dark .status-paused {
+  color: #88b;
+}
+
 body.light {
   background-color: whitesmoke;
   color: black;
@@ -50,6 +60,15 @@ body.light header {
   background-color: #ddd;
 }
 
+body.light .status-online {
+  color: #282;
+}
+body.light .status-offline {
+  color: #822;
+}
+body.light .status-paused {
+  color: #228;
+}
 #main-document[inert] > .popup-bg-cover {
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
@@ -129,6 +148,10 @@ h1 {
 .block {
   padding: 2px 6px 2px 6px;
   margin: 0 2px 0 2px;
+}
+
+.blocks-countainer {
+  display: flex;
 }
 
 button {

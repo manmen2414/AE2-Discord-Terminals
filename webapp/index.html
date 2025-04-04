@@ -39,17 +39,17 @@
         </header>
 
         <div class="top_gui gui" style="margin-top: 80px;">
-            <div>
-                <span class="block clickable" onclick="toggleRequestEnable()" title="クリックでリクエストの一時停止/再開を切り替え">
-                    <span style="color: palevioletred;">Status:
-                        <span id="status" style="color: red;">Offline
+            <div class="blocks-countainer">
+                <div class="block clickable" onclick="toggleRequestEnable()" title="クリックでリクエストの一時停止/再開を切り替え">
+                    <span style="color: palevioletred;display: flex;">Status:
+                        <span id="status">Offline
                         </span>
                     </span>
-                </span>
+                </div>
 
-                <span class="block" id="counts">
+                <div class="block" id="counts">
                     Loading...
-                </span>
+                </div>
 
             </div>
             <div id="elements">

@@ -140,17 +140,26 @@ class MEElement {
 
 let requestEnable = true;
 let online = false;
+/**@enum {number} */
+const Statuses = {
+  ONLINE: 0,
+  OFFLINE: 1,
+  PAUSED: 2,
+};
+function getStatus() {
+  return requestEnable
+    ? online
+      ? Statuses.ONLINE
+      : Statuses.OFFLINE
+    : Statuses.PAUSED;
+}
 function reloadStatus() {
-  document.querySelector("#status").innerHTML = requestEnable
-    ? online
-      ? "Online"
-      : "Offline"
-    : "Pause";
-  document.querySelector("#status").style.color = requestEnable
-    ? online
-      ? "lightgreen"
-      : "red"
-    : "lightblue";
+  const status = document.querySelector("#status");
+  status.innerHTML = [
+    `<div class="status-online">Online</div>`,
+    `<div class="status-offline">Offline</div>`,
+    `<div class="status-paused">Paused</div>`,
+  ][getStatus()];
 }
 
 function toggleRequestEnable() {
