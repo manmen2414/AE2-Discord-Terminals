@@ -34,6 +34,10 @@ body.dark .status-paused {
   color: #88b;
 }
 
+body.dark .craftbutton {
+  background-image: url("/assets/hammer-white.svg");
+}
+
 body.light {
   background-color: whitesmoke;
   color: black;
@@ -68,6 +72,10 @@ body.light .status-offline {
 }
 body.light .status-paused {
   color: #228;
+}
+
+body.light .craftbutton {
+  background-image: url("/assets/hammer-black.svg");
 }
 #main-document[inert] > .popup-bg-cover {
   position: fixed;
@@ -160,6 +168,16 @@ button {
   outline: none;
   box-shadow: none;
   cursor: pointer;
+}
+.craftbutton:disabled {
+  opacity: 0;
+}
+.craftbutton {
+  position: relative;
+  margin-right: 5px;
+  top: -5px;
+  width: 20px;
+  height: 20px;
 }
 
 .clickable {

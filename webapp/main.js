@@ -63,7 +63,7 @@ class MEElement {
 
     const HTMLObject = document.createElement("li");
     const craftButton = document.createElement("button");
-    craftButton.innerText = "CRAFT";
+    craftButton.classList.add("craftbutton");
     if (this.isCraftable)
       craftButton.onclick = () => {
         const count = prompt(`${this.displayName}をいくつクラフトする？`);
