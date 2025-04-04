@@ -77,19 +77,6 @@ body.light .status-paused {
 body.light .craftbutton {
   background-image: url("/assets/hammer-black.svg");
 }
-#main-document[inert] > .popup-bg-cover {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
-#main-doument {
-  z-index: 0;
-}
 
 body {
   font-family: "Murecho", sans-serif;
@@ -99,6 +86,21 @@ body {
   font-size: 20px;
 }
 
+.craft-request > input {
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.craft-request > button {
+  border-radius: 5px;
+  height: 30px;
+  width: 50px;
+  background-color: #fff;
+  border: #000 solid 1px;
+  color: #000 !important;
+}
+
 .popup {
   justify-content: left;
   position: fixed;
@@ -106,9 +108,14 @@ body {
   background-color: #aabbcc;
   width: fit-content;
   color: black;
-  font-size: 30px;
   border-radius: 5px;
   animation: fadeIn 0.3s ease 0s 1 normal backwards;
+}
+
+@media screen and (max-width: 600px) {
+  .popup-message {
+    font-size: 20px !important;
+  }
 }
 @keyframes fadeIn {
   from {
@@ -155,6 +162,8 @@ header > .right {
   font-weight: bold;
   padding-left: 20px;
   font-size: 25px;
+  text-align: center;
+  width: 100%;
 }
 
 .right {
