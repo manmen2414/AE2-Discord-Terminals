@@ -38,13 +38,19 @@ body.dark .craftbutton {
   background-image: url("/assets/hammer-white.svg");
 }
 
+body.dark #sidepanel {
+  background-color: #333;
+}
+body.dark #sidepanel > input,
+body.dark #sidepanel > button {
+  background-color: #444;
+  border: #fff 2px solid;
+  color: #fff;
+}
+
 body.light {
   background-color: whitesmoke;
   color: black;
-}
-
-body.dark light {
-  color: white;
 }
 
 body.light a {
@@ -77,7 +83,15 @@ body.light .status-paused {
 body.light .craftbutton {
   background-image: url("/assets/hammer-black.svg");
 }
-
+body.light #sidepanel {
+  background-color: #ccc;
+}
+body.light #sidepanel > input,
+body.light #sidepanel > button {
+  background-color: #aaa;
+  border: #000 2px solid;
+  color: #000;
+}
 body {
   font-family: "Murecho", sans-serif;
   font-optical-sizing: auto;
@@ -126,6 +140,27 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+#sidepanel {
+  position: fixed;
+  right: 10px;
+  top: 55px;
+  width: 30%;
+  padding: 20px;
+  height: calc(100% - 105px);
+}
+#sidepanel > input,
+#sidepanel > button {
+  padding: 10px;
+  font-size: 20px;
+}
+#search {
+  border-radius: 20px;
+}
+
+#elements {
+  margin: 20px;
+  list-style: none;
 }
 
 .popup-delete {

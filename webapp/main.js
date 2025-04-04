@@ -155,6 +155,10 @@ class MEElement {
     });
   }
 }
+class Terminal {
+  constructor() {}
+  tick() {}
+}
 
 let requestEnable = true;
 let online = false;
@@ -184,6 +188,55 @@ function toggleRequestEnable() {
   requestEnable = !requestEnable;
   reloadStatus();
 }
+/**
+ * @param {MEElement[]} elementList
+ * @param {string} search
+ */
+function filterByJEISearch(elementList, search = "") {
+  const searchFilters = search.split(" ");
+  const searchMod = [];
+  const searchName = [];
+  searchFilters.forEach((e) => {
+    if (e.startsWith("@")) searchMod.push(e.substring(1));
+    else searchName.push(e);
+  });
+  return elementList.filter((e) => {
+    const [modid, id] = e.name.split(":");
+    const name = e.displayName;
+    //大文字小文字関係なくするため小文字に統一
+    return (
+      searchName.every(
+        (sn) =>
+          //アイテムIDまたは名前に合致すればおｋ
+          id.toLowerCase().includes(sn.toLowerCase()) ||
+          name.toLowerCase().includes(sn.toLowerCase())
+      ) &&
+      searchMod.every((sm) => modid.toLowerCase().includes(sm.toLowerCase()))
+    );
+  });
+}
+
+/**
+ * @param {MEElement[]} elementList
+ * @param {string} search
+ */
+function display(elementList, search = "") {
+  const div = document.createElement("div");
+  const searchedElementList = filterByJEISearch(elementList, search);
+  searchedElementList.forEach((element) => {
+    div.appendChild(element.toDisplay());
+  });
+  const elementsDiv = document.querySelector("#elements");
+  elementsDiv.innerHTML = "";
+  elementsDiv.appendChild(div);
+  document.querySelector(
+    "#counts"
+  ).innerHTML = `Found ${searchedElementList.length}`;
+}
+let searchText = "";
+function search() {
+  searchText = document.querySelector("#search").value;
+}
 
 function tick() {
   if (!requestEnable) return;
@@ -206,15 +259,10 @@ function tick() {
     .then((v) => {
       online = true;
       reloadStatus();
-      const div = document.createElement("div");
-      v.forEach((element) => {
-        const meElement = new MEElement(element);
-        div.insertAdjacentElement("beforeend", meElement.toDisplay());
-      });
-      const elementsDiv = document.querySelector("#elements");
-      elementsDiv.innerHTML = "";
-      elementsDiv.insertAdjacentElement("beforeend", div);
-      document.querySelector("#counts").innerHTML = `${v.length} elements`;
+      display(
+        v.map((e) => new MEElement(e)),
+        searchText
+      );
     })
     .catch((ex) => {
       online = false;
