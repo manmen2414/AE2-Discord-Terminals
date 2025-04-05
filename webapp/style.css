@@ -58,6 +58,9 @@ body.dark #sidepanel > button {
 body.dark .element-count {
   color: #8b8;
 }
+body.dark .element-count-crafting {
+  color: #b8b;
+}
 
 body.dark #hamburger-menu-active,
 body.dark #hamburger-menu {
@@ -119,6 +122,9 @@ body.light #sidepanel > button {
 }
 body.light .element-count {
   color: #282;
+}
+body.light .element-count-crafting {
+  color: #828;
 }
 body.light #hamburger-menu-active,
 body.light #hamburger-menu {

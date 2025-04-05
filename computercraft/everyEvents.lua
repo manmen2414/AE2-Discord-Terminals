@@ -2,7 +2,7 @@ local API = require("api")
 local meBridge = peripheral.find("meBridge")
 local requested = {};
 return function()
-    ---@type {type:string,tags:string[],name:string,amount:number,fingerprint:string,isCraftable:boolean,nbt:table,displayName:string,mode:string,reason:string?}[]|nil
+    ---@type {type:string,tags:string[],name:string,amount:number,fingerprint:string,isCraftable:boolean,nbt:table,displayName:string,mode:string,reason:string?,craftAmount:number?}[]|nil
     local RequestList = API.Get("/craft")
     if RequestList then
         for index, req in ipairs(RequestList) do
@@ -10,11 +10,11 @@ return function()
                 local sucess, err = false, ""
                 if req.type == "item" then
                     sucess, err = meBridge.craftItem({
-                        fingerprint = req.fingerprint, count = req.amount
+                        fingerprint = req.fingerprint, count = req.craftAmount
                     })
                 else
                     sucess, err = meBridge.craftFluid({
-                        name = req.name, count = req.amount
+                        name = req.name, count = req.craftAmount
                     })
                 end
                 if sucess then
@@ -26,7 +26,7 @@ return function()
                         return;
                     end
                     requested[#requested + 1] = req
-                    print("Resolve Craft " .. req.name .. " x" .. req.amount)
+                    print("Resolve Craft " .. req.name .. " x" .. req.craftAmount)
                 else
                     if err then
                         req.reason = err;

@@ -20,11 +20,6 @@ function EncodeHTMLText(text) {
   return text;
 }
 
-/**@type {MEElement[]} */
-let Elements = [];
-/**@type {MEElement[]} */
-let Crafting = [];
-
 class MEElement {
   /**@param {rawMEElement} rawData */
   constructor(rawData) {
@@ -46,6 +41,10 @@ class MEElement {
     this.displayName = rawData.displayName;
     /**@type {"normal"|"request"|"finished"|"error"} */
     this.mode = "normal";
+    /**@type {number} */
+    this.craftAmount = 0;
+    /**@type {"x"|"mB"} */
+    this.xOrMB = this.type === "item" ? "x" : "mB";
   }
 
   /**@param {string} format */
@@ -120,14 +119,22 @@ class MEElement {
       document.createElement("span"),
       document.createElement("span"),
       document.createElement("span"),
+      document.createElement("span"),
     ];
+
     spans[0].classList.add("element-count");
-    spans[0].innerText = `${this.amount}${this.type === "item" ? "x" : "mB"} `;
-    spans[1].innerText = this.displayName;
+    spans[1].classList.add("element-count-crafting");
+    if (!!this.craftAmount) {
+      spans[0].innerText = `${this.amount} `;
+      spans[1].innerText = `+ ${this.craftAmount}${this.xOrMB} `;
+    } else {
+      spans[0].innerText = `${this.amount}${this.xOrMB} `;
+    }
+    spans[2].innerText = this.displayName;
     if (nbts !== 0) {
-      spans[2].classList.add("element-nbt");
-      spans[2].innerText = `+${nbts}`;
-      spans[2].title = JSON.stringify(this.nbt ?? {});
+      spans[3].classList.add("element-nbt");
+      spans[3].innerText = `+${nbts}`;
+      spans[3].title = JSON.stringify(this.nbt ?? {});
     }
     if (showActionButtons)
       buttons.forEach((span) => HTMLObject.appendChild(span));
@@ -147,6 +154,7 @@ class MEElement {
       nbt: this.nbt,
       displayName: this.displayName,
       mode: this.mode,
+      craftAmount: this.craftAmount,
     });
   }
 
@@ -157,32 +165,32 @@ class MEElement {
   craft(amount) {
     return new Promise((resolve, reject) => {
       if (!this.isCraftable) reject("This is not Craftable");
-      const actualAmount = this.amount;
-      this.amount = amount;
+      this.craftAmount = amount;
       this.mode = "request";
+      const crafting = Terminal.instance.crafting;
       APIRequest("/craft", "POST", this.toJson()).then((answer) => {
         if (typeof answer === "string") reject(answer);
         if ("error" in answer) reject(answer.error);
-        Crafting.push(this);
+        crafting.push(this);
+        Terminal.instance.reloadCraftingMonitor();
         const id = setInterval(() => {
-          if (this.mode === "finished") {
+          const mode = this.mode;
+          if (mode === "finished" || mode === "error") {
             this.mode = "normal";
-            Crafting = Crafting.filter(
+            this.craftAmount = 0;
+            Terminal.instance.crafting = crafting.filter(
               (v) => v.fingerprint !== this.fingerprint
             );
+            Terminal.instance.reloadCraftingMonitor();
             clearInterval(id);
+          }
+          if (mode === "finished") {
             resolve(false);
-          } else if (this.mode.startsWith("error")) {
-            this.mode = "normal";
-            Crafting = Crafting.filter(
-              (v) => v.fingerprint !== this.fingerprint
-            );
-            clearInterval(id);
+          } else if (mode === "error") {
             reject(this.mode.substring(5));
           }
         }, 1000);
       });
-      this.amount = actualAmount;
     });
   }
 }
@@ -229,12 +237,17 @@ class Terminal {
   gotElements = [];
   requestEnable = true;
   online = false;
+  /**@type {MEElement[]} */
+  Elements = [];
+  /**@type {MEElement[]} */
+  crafting = [];
+
   constructor() {}
   tick() {
     if (!this.requestEnable) return;
     APIRequest("/craft").then((val) => {
       val.forEach((element) => {
-        const meElement = Crafting.find(
+        const meElement = this.crafting.find(
           (v) => v.fingerprint === element.fingerprint
         );
         if (!meElement) return;
@@ -297,15 +310,18 @@ class Terminal {
       "#counts"
     ).innerHTML = `Found ${searchedElementList.length}`;
   }
-  showCraftings() {
+  showCraftingMonitor() {
     /**@type {HTMLDivElement} */ //@ts-ignore
     const monitor = document.querySelector("#crafting-monitor");
     const display = monitor.style.display === "block";
     monitor.style.display = display ? "none" : "block";
+    this.reloadCraftingMonitor();
+  }
+  reloadCraftingMonitor() {
     /**@type {HTMLDivElement} */ //@ts-ignore
     const elements = document.querySelector("#crafting-monitor>div");
     elements.innerHTML = "";
-    Crafting.forEach((meElement) => {
+    this.crafting.forEach((meElement) => {
       elements.appendChild(meElement.toDisplay(false));
     });
   }
