@@ -89,7 +89,7 @@ class MEElement {
     };
   }
 
-  toDisplay() {
+  toDisplay(showActionButtons) {
     const HTMLObject = document.createElement("li");
     const buttons = [
       document.createElement("button"),
@@ -129,7 +129,8 @@ class MEElement {
       spans[2].innerText = `+${nbts}`;
       spans[2].title = JSON.stringify(this.nbt ?? {});
     }
-    buttons.forEach((span) => HTMLObject.appendChild(span));
+    if (showActionButtons)
+      buttons.forEach((span) => HTMLObject.appendChild(span));
     spans.forEach((span) => HTMLObject.appendChild(span));
 
     return HTMLObject;
@@ -285,7 +286,7 @@ class Terminal {
     const div = document.createElement("div");
     const searchedElementList = filterByJEISearch(this.gotElements, search);
     searchedElementList.forEach((element) => {
-      div.appendChild(element.toDisplay());
+      div.appendChild(element.toDisplay(true));
     });
     /**@type {Element} */ //@ts-ignore
     const elementsDiv = document.querySelector("#elements");
@@ -295,6 +296,18 @@ class Terminal {
     document.querySelector(
       "#counts"
     ).innerHTML = `Found ${searchedElementList.length}`;
+  }
+  showCraftings() {
+    /**@type {HTMLDivElement} */ //@ts-ignore
+    const monitor = document.querySelector("#crafting-monitor");
+    const display = monitor.style.display === "block";
+    monitor.style.display = display ? "none" : "block";
+    /**@type {HTMLDivElement} */ //@ts-ignore
+    const elements = document.querySelector("#crafting-monitor>div");
+    elements.innerHTML = "";
+    Crafting.forEach((meElement) => {
+      elements.appendChild(meElement.toDisplay(false));
+    });
   }
 }
 function toggleMenu() {
