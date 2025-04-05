@@ -30,6 +30,7 @@
     <header>
         <button onclick="toggleMenu()" id="hamburger-menu">
         </button>
+        <!--FIXME:ライトモードでも白いハンマーアイコンになる-->
         <button onclick="Terminal.instance.showCraftingMonitor()" id="craftings-button">
         </button>
 
@@ -58,6 +59,9 @@
             Loading...
         </div>
 
+        <div class="block" id="crafting-count">
+            Crafting 0
+        </div>
     </div>
     <div class="viewer">
         <div id="elements">

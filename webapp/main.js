@@ -60,6 +60,7 @@ class MEElement {
     if (/^[0-9]+$/.test(count))
       this.craft(parseInt(count))
         .then(() => {
+          //TODO: 作業台加工じゃないものにクラフトというのはちょっと変
           Popup.Popup("✅" + this.displayName + "のクラフトが完了しました！");
         })
         .catch((ex) => {
@@ -77,6 +78,7 @@ class MEElement {
     const popupInput = `<input id="cv-${id}" type="number">`;
     const popupButton = `<button id="cb-${id}">Enter</button>`;
     const popupDiv = `<div class="craft-request">${popupInput}${popupButton}</div>`;
+    //TODO: 同上
     const text = EncodeHTMLText(`${this.displayName}をいくつクラフトする？`);
     const popup = new Popup(`${text}<br>${popupDiv}`)
       .setWaitTime(0)
@@ -164,18 +166,18 @@ class MEElement {
       if (!this.isCraftable) reject("This is not Craftable");
       this.craftAmount = amount;
       this.mode = "request";
-      const crafting = Terminal.instance.crafting;
       APIRequest("/craft", "POST", this.toJson()).then((answer) => {
         if (typeof answer === "string") reject(answer);
         if ("error" in answer) reject(answer.error);
-        crafting.push(this);
+        //HACK:Terminal.instance.craftingっていちいち書くの汚くない？
+        Terminal.instance.crafting.push(this);
         Terminal.instance.reloadCraftingMonitor();
         const id = setInterval(() => {
           const mode = this.mode;
           if (mode === "finished" || mode === "error") {
             this.mode = "normal";
             this.craftAmount = 0;
-            Terminal.instance.crafting = crafting.filter(
+            Terminal.instance.crafting = Terminal.instance.crafting.filter(
               (v) => v.fingerprint !== this.fingerprint
             );
             Terminal.instance.reloadCraftingMonitor();
@@ -346,6 +348,9 @@ class Terminal {
     this.reloadCraftingMonitor();
   }
   reloadCraftingMonitor() {
+    /**@type {HTMLDivElement} */ //@ts-ignore
+    const craftCount = document.querySelector("#crafting-count");
+    craftCount.innerText = `Crafting ${this.crafting.length}`;
     /**@type {HTMLDivElement} */ //@ts-ignore
     const elements = document.querySelector("#crafting-monitor>div");
     elements.innerHTML = "";
