@@ -107,7 +107,6 @@ class MEElement {
         });
     };
     buttons[1].classList.add("element-info");
-    //#TODO: 情報をサイドメニューに表示するメソッドの実装
     buttons[1].onclick = () => this.showInfo();
     buttons[2].classList.add("craftbutton");
     if (this.isCraftable) buttons[2].onclick = () => this.craftPrompt();
@@ -192,6 +191,27 @@ class MEElement {
         }, 1000);
       });
     });
+  }
+  showInfo() {
+    const childs = [
+      document.createElement("div"), //アイテム名
+      document.createElement("div"), //ID
+      document.createElement("div"), //fingerprint
+      document.createElement("span"), //"Count: "
+      document.createElement("span"), //個数
+    ];
+    childs[0].innerText = this.displayName;
+    childs[0].style.textAlign = "center";
+    childs[1].innerText = this.name;
+    childs[1].style.fontSize = "80%";
+    childs[2].innerText = this.fingerprint;
+    childs[2].classList.add("element-nbt");
+    childs[3].innerText = "Count: ";
+    childs[4].innerText = this.amount.toString();
+    childs[4].classList.add("element-count");
+    const div = showDivToCursorPos(null);
+    div.classList.add("item-info");
+    childs.forEach((e) => div.appendChild(e));
   }
 }
 
@@ -387,6 +407,50 @@ function sortElements(elements, sorting) {
     }
   });
 }
+
+function generateDivToCursor() {
+  const div = document.createElement("div");
+  div.style.position = "fixed";
+  div.style.left = `${mouseX}px`;
+  div.style.top = `${mouseY}px`;
+  return div;
+}
+/**
+ *
+ * @param {(ev: MouseEvent)=>void} callback
+ * @returns
+ */
+function generateClickRemoveBg(callback) {
+  const div = document.createElement("div");
+  div.style.position = "fixed";
+  div.style.left = `0px`;
+  div.style.top = `0px`;
+  div.style.width = `100%`;
+  div.style.height = `100%`;
+  div.style.zIndex = `0.1`;
+  div.onclick = (ev) => {
+    callback(ev);
+    div.remove();
+  };
+  document.body.appendChild(div);
+  return div;
+}
+
+/**
+ * @param {string|Element|null} html
+ */
+function showDivToCursorPos(html) {
+  const div = generateDivToCursor();
+  if (!!html)
+    if (typeof html === "string") div.innerHTML = html;
+    else div.appendChild(html);
+  document.body.appendChild(div);
+  generateClickRemoveBg(() => {
+    div.remove();
+  });
+  return div;
+}
+
 const TICK_TIME = 1000;
 
 setInterval(() => {
@@ -394,4 +458,10 @@ setInterval(() => {
 }, TICK_TIME);
 document.addEventListener("DOMContentLoaded", () => {
   Terminal.instance.tick();
+});
+let { mouseX, mouseY } = { mouseX: 0, mouseY: 0 };
+
+document.addEventListener("mousemove", (ev) => {
+  mouseX = ev.clientX;
+  mouseY = ev.clientY;
 });

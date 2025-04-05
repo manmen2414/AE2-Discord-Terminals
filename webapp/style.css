@@ -67,6 +67,9 @@ body.dark #hamburger-menu-active,
 body.dark #hamburger-menu {
   background-image: url("/assets/hamburger-menu-white.svg");
 }
+body.dark .item-info {
+  background-color: rgba(0, 0, 0, 0.9);
+}
 
 body.light {
   background-color: #eee;
@@ -131,6 +134,9 @@ body.light .element-count-crafting {
 body.light #hamburger-menu-active,
 body.light #hamburger-menu {
   background-image: url("/assets/hamburger-menu-black.svg");
+}
+body.light .item-info {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 body {
@@ -212,6 +218,12 @@ body {
 #elements {
   margin: 20px;
   list-style: none;
+}
+.item-info {
+  border-radius: 5px;
+  border: #282 solid 2px;
+  padding: 5px;
+  z-index: 3;
 }
 
 .popup-delete {
