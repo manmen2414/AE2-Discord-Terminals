@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AE2 Remote Terminal Debug</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:description"
+        content="自動クラフトの発注ができる簡易ターミナルです。https://github.com/manmen2414/AE2-Discord-Terminals">
+    <meta property="og:title" content="AE2 Web Terminal">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Murecho:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/icon.ico">
+    <script src="/main.js"></script>
+    <script src="/util/popup.js" defer></script>
+    <script src="/util/request.js"></script>
+    <script src="/util/debug.js"></script>
+</head>
+
+<body>
+    <script>
+        const body = document.querySelector("body");
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        body.classList.add(isDark ? "dark" : "light")
+    </script>
+
+    <header>
+        <button onclick="toggleMenu()" id="hamburger-menu">
+        </button>
+        <!--#TODO: クラフト中のアイテムを表示するメソッドの実装-->
+        <button onclick="Terminal.instance.showCraftings()" id="craftings-button">
+        </button>
+
+        <div class="right">
+            <img src="/assets/min.svg" alt="" style="width: 24px;height: 24px;">
+            <a style="font-size: 25px;" href="https://github.com/manmen2414/AE2-Discord-Terminals">GITHUB</a>
+        </div>
+        <div class="title">ME Web Terminal Debug</div>
+    </header>
+
+    <div class="blocks-countainer">
+        <div class="block clickable" onclick="Terminal.instance.toggleRequestEnable()" title="クリックでリクエストの一時停止/再開を切り替え">
+            <span style="color: palevioletred;display: flex;">Status:
+                <span id="status">Offline
+                </span>
+            </span>
+        </div>
+
+        <div class="block" id="counts">
+            Loading...
+        </div>
+
+        <div class="block clickable" onclick="popup()">
+            Popup
+        </div>
+
+        <div class="block clickable" onclick="debugCursorPop()">
+            CursorPop1
+        </div>
+
+        <div class="block clickable" onclick="debugMovingCursorPop()">
+            CursorPop2
+        </div>
+    </div>
+    <div class="viewer">
+        <div id="elements">
+        </div>
+        <div id="sidepanel" class="sidepanel-closed">
+            <input type="text" id="search" onchange="Terminal.instance.display()" placeholder="Search">
+        </div>
+    </div>
+
+</body>
+
+</html>
