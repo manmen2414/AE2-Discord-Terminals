@@ -50,6 +50,7 @@ body.dark #sidepanel {
   background-color: #333;
 }
 body.dark #sidepanel > input,
+body.dark #sidepanel > select,
 body.dark #sidepanel > button {
   background-color: #444;
   border: #fff 2px solid;
@@ -115,6 +116,7 @@ body.light #sidepanel {
   background-color: #ccc;
 }
 body.light #sidepanel > input,
+body.light #sidepanel > select,
 body.light #sidepanel > button {
   background-color: #aaa;
   border: #000 2px solid;
@@ -190,14 +192,21 @@ body {
   height: calc(100% - 105px);
   transition: transform 0.5s ease-in-out;
 }
-#sidepanel > input,
-#sidepanel > button {
-  padding: 10px;
-  font-size: 20px;
-}
 #search {
-  border-radius: 20px;
+  padding: 10px !important;
+  border-radius: 20px !important;
+  font-size: 20px !important;
   width: 97%;
+}
+#sidepanel > * {
+  margin-top: 5px;
+}
+#sidepanel > input,
+#sidepanel > select,
+#sidepanel > button {
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 5px;
 }
 
 #elements {

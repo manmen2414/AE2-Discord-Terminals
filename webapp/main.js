@@ -36,7 +36,7 @@ class MEElement {
     /**@type {boolean} */
     this.isCraftable = rawData.isCraftable;
     /**@type {object} */
-    this.nbt = rawData.nbt.tag ?? {};
+    this.nbt = rawData.nbt?.tag ?? {};
     /**@type {string} */
     this.displayName = rawData.displayName;
     /**@type {"normal"|"request"|"finished"|"error"} */
@@ -230,6 +230,14 @@ const Statuses = {
   OFFLINE: 1,
   PAUSED: 2,
 };
+/**@enum {number} */
+const Sorting = {
+  DEFAULT: 0,
+  NAME_A_TO_Z: 1,
+  NAME_Z_TO_A: 2,
+  COUNT_1_TO_9: 3,
+  COUNT_9_TO_1: 4,
+};
 class Terminal {
   /**@type {Terminal} */
   static instance = new Terminal();
@@ -237,8 +245,6 @@ class Terminal {
   gotElements = [];
   requestEnable = true;
   online = false;
-  /**@type {MEElement[]} */
-  Elements = [];
   /**@type {MEElement[]} */
   crafting = [];
 
@@ -296,8 +302,12 @@ class Terminal {
   display() {
     //@ts-ignore
     const search = document.querySelector("#search").value;
-    const div = document.createElement("div");
-    const searchedElementList = filterByJEISearch(this.gotElements, search);
+    const div = document.createElement("div"); //@ts-ignore
+    const sorting = parseInt(document.querySelector("#sorting-selector").value);
+    const searchedElementList = sortElements(
+      filterByJEISearch(this.gotElements, search),
+      sorting
+    );
     searchedElementList.forEach((element) => {
       div.appendChild(element.toDisplay(true));
     });
@@ -339,6 +349,43 @@ function toggleMenu() {
     activedMenu.id = "hamburger-menu";
     sidepanel.className = "sidepanel-closed";
   }
+}
+/**
+ * @param {MEElement[]} elements
+ * @param {number} sorting
+ */
+function sortElements(elements, sorting) {
+  /**
+   * @param {string} a
+   * @param {string} b
+   */
+  function sortingByName(a, b, reverse = false) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    const r = reverse ? -1 : 1;
+    if (a < b) return -1 * r;
+    else if (a > b) return 1 * r;
+    return 0;
+  }
+  return elements.sort((a, b) => {
+    switch (sorting) {
+      case Sorting.NAME_A_TO_Z:
+        return sortingByName(a.displayName, b.displayName);
+        break;
+      case Sorting.NAME_Z_TO_A:
+        return sortingByName(a.displayName, b.displayName, true);
+        break;
+      case Sorting.COUNT_1_TO_9:
+        return a.amount - b.amount;
+        break;
+      case Sorting.COUNT_9_TO_1:
+        return b.amount - a.amount;
+        break;
+      default:
+        return 0;
+        break;
+    }
+  });
 }
 const TICK_TIME = 1000;
 

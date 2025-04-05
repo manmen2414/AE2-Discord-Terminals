@@ -64,6 +64,14 @@
         </div>
         <div id="sidepanel" class="sidepanel-closed">
             <input type="text" id="search" onchange="Terminal.instance.display()" placeholder="Search">
+            ソート方法:
+            <select name="pets" id="sorting-selector" onchange="Terminal.instance.display()">
+                <option value="0">デフォルト(軽量)</option>
+                <option value="1">名前[A-Z]</option>
+                <option value="2">名前[Z-A]</option>
+                <option value="3">アイテム数[1-9]</option>
+                <option value="4">アイテム数[9-1]</option>
+            </select>
         </div>
     </div>
 
