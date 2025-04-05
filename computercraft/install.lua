@@ -1,21 +1,21 @@
 local function checkYes(ans)
     return ans ~= "n" and ans ~= "no" and ans ~= "No" and ans ~= "N" and ans ~= "NO"
 end
-term.setBackgroundColor(colors.white)
 term.clear();
 term.setCursorPos(1, 1);
-term.setTextColor(colors.brown)
+term.setTextColor(colors.yellow)
 print("Hello! (-v-)/")
-term.setTextColor(colors.black)
-print("Do you want to install?")
+term.setTextColor(colors.white)
+print("Do you want to install")
 term.setTextColor(colors.green)
 print("AE2-Discord-Terminal")
-term.setTextColor(colors.black)
-term.blit("(Y/n): ", "fdfefff", "0000000")
+term.blit("(Y/n): ", "0d0e000", "fffffff")
+term.setTextColor(colors.white)
 local ans = read();
 if checkYes(ans) then
     term.write("Can Use startup?")
-    term.blit("(Y/n): ", "fdfefff", "0000000")
+    term.blit("(Y/n): ", "0d0e000", "fffffff")
+    term.setTextColor(colors.white)
     ans = read();
     if checkYes(ans) then
         shell.run(
@@ -34,8 +34,9 @@ if checkYes(ans) then
     writeStream.close();
     term.setTextColor(colors.magenta)
     print("Installed!")
-    term.setTextColor(colors.black)
+    term.setTextColor(colors.white)
     for i = 1, 5, 1 do
+        term.setCursorPos(1, ({ term.getCursorPos() })[2])
         term.write("Restart in " .. 6 - i)
         sleep(1);
     end

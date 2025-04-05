@@ -1,5 +1,5 @@
 local config = {
-    roopSecond = 5
+    roopSecond = 2
 }
 term.clear();
 term.setCursorPos(1, 1);
@@ -17,7 +17,7 @@ if isValidURL and Response then
 elseif isValidURL then
     error("URL check is sucess,But don't response api.")
 else
-    error("URL is wrogng.");
+    error("URL is wrong.");
 end
 
 repeat
