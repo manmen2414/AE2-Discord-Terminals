@@ -8,7 +8,6 @@ function EncodeHTMLText(text) {
     "&": "&amp",
     '"': "&quot",
     "'": "&apos",
-    ":": "&#x3A",
     " ": "&nbsp",
     "<": "&lt",
     ">": "&gt",
@@ -97,14 +96,13 @@ class MEElement {
     ];
     buttons[0].classList.add("element-copy");
     buttons[0].onclick = () => {
-      navigator.clipboard
-        .writeText(this.name)
-        .then(() => {
-          Popup.Popup("IDをコピーしました！", 2);
-        })
-        .catch(() => {
-          Popup.Popup(this.name);
-        });
+      if (!navigator.clipboard) {
+        Popup.Popup(this.name, 0);
+        return;
+      }
+      navigator.clipboard.writeText(this.name).then(() => {
+        Popup.Popup("IDをコピーしました！", 2);
+      });
     };
     buttons[1].classList.add("element-info");
     buttons[1].onclick = () => this.showInfo();
