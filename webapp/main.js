@@ -73,7 +73,7 @@ class MEElement {
     Popup.Popup(`リクエストしました！`, 3);
   }
 
-  craftPrompt() {
+  craftPromptOld() {
     const id = this.name.replace(":", "-");
     const popupInput = `<input id="cv-${id}" type="number">`;
     const popupButton = `<button id="cb-${id}">Enter</button>`;
@@ -87,6 +87,22 @@ class MEElement {
       //@ts-ignore
       popup.close(document.querySelector(`#cv-${id}`).value ?? null);
     };
+  }
+  craftPrompt() {
+    const input = document.createElement("input");
+    const popup = showDivToCursorPos("要求量: ");
+    input.classList.add("all-transparent");
+    input.style.width = "70px";
+    input.addEventListener("keypress", (ev) => {
+      if (ev.key === "Enter") {
+        this.craftRequest(parseInt(input.value) ?? null);
+        // @ts-ignore
+        document.querySelector("#clickremovebg").click();
+      }
+    });
+    popup.classList.add("bg-transpoted", "craft-popup");
+    popup.appendChild(input);
+    input.focus();
   }
 
   toDisplay(showActionButtons) {
@@ -210,7 +226,7 @@ class MEElement {
     childs[4].innerText = this.amount.toString();
     childs[4].classList.add("element-count");
     const div = showDivToCursorPos(null);
-    div.classList.add("item-info");
+    div.classList.add("item-info", "bg-transpoted");
     childs.forEach((e) => div.appendChild(e));
   }
 }
@@ -426,6 +442,7 @@ function generateClickRemoveBg(callback) {
   div.style.width = `100%`;
   div.style.height = `100%`;
   div.style.zIndex = `0.1`;
+  div.id = "clickremovebg";
   div.onclick = (ev) => {
     callback(ev);
     div.remove();

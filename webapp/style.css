@@ -54,6 +54,10 @@ body.dark #sidepanel > select,
 body.dark #sidepanel > button {
   background-color: #444;
   border: #fff 2px solid;
+}
+body.dark input,
+body.dark select,
+body.dark button {
   color: #fff;
 }
 body.dark .element-count {
@@ -67,7 +71,7 @@ body.dark #hamburger-menu-active,
 body.dark #hamburger-menu {
   background-image: url("/assets/hamburger-menu-white.svg");
 }
-body.dark .item-info {
+body.dark .bg-transpoted {
   background-color: rgba(0, 0, 0, 0.9);
 }
 body.dark #craftings-button {
@@ -126,6 +130,10 @@ body.light #sidepanel > select,
 body.light #sidepanel > button {
   background-color: #aaa;
   border: #000 2px solid;
+}
+body.light input,
+body.light select,
+body.light button {
   color: #000;
 }
 body.light .element-count {
@@ -217,19 +225,28 @@ body {
 #sidepanel > select,
 #sidepanel > button {
   padding: 5px;
-  font-size: 15px;
   border-radius: 5px;
+}
+input,
+select,
+button {
+  font-size: 15px;
 }
 
 #elements {
   margin: 20px;
   list-style: none;
 }
-.item-info {
+.bg-transpoted {
   border-radius: 5px;
-  border: #282 solid 2px;
   padding: 5px;
   z-index: 3;
+}
+.item-info {
+  border: #282 solid 2px;
+}
+.craft-popup {
+  border: #822 solid 2px;
 }
 
 .popup-delete {
@@ -318,11 +335,14 @@ header > .right {
   display: flex;
 }
 
+.all-transparent,
 button {
   background: transparent;
   border: none;
   outline: none;
   box-shadow: none;
+}
+button {
   cursor: pointer;
 }
 .craftbutton:disabled {
