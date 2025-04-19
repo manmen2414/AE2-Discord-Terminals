@@ -169,18 +169,18 @@ class MEElement {
       APIRequest("/craft", "POST", this.toJson()).then((answer) => {
         if (typeof answer === "string") reject(answer);
         if ("error" in answer) reject(answer.error);
-        //HACK:Terminal.instance.craftingっていちいち書くの汚くない？
-        Terminal.instance.crafting.push(this);
-        Terminal.instance.reloadCraftingMonitor();
+        const term = Terminal.instance;
+        term.crafting.push(this);
+        term.reloadCraftingMonitor();
         const id = setInterval(() => {
           const mode = this.mode;
           if (mode === "finished" || mode === "error") {
             this.mode = "normal";
             this.craftAmount = 0;
-            Terminal.instance.crafting = Terminal.instance.crafting.filter(
+            term.crafting = term.crafting.filter(
               (v) => v.fingerprint !== this.fingerprint
             );
-            Terminal.instance.reloadCraftingMonitor();
+            term.reloadCraftingMonitor();
             clearInterval(id);
           }
           if (mode === "finished") {
@@ -394,19 +394,14 @@ function sortElements(elements, sorting) {
     switch (sorting) {
       case Sorting.NAME_A_TO_Z:
         return sortingByName(a.displayName, b.displayName);
-        break;
       case Sorting.NAME_Z_TO_A:
         return sortingByName(a.displayName, b.displayName, true);
-        break;
       case Sorting.COUNT_1_TO_9:
         return a.amount - b.amount;
-        break;
       case Sorting.COUNT_9_TO_1:
         return b.amount - a.amount;
-        break;
       default:
         return 0;
-        break;
     }
   });
 }
