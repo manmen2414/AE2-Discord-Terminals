@@ -127,3 +127,80 @@ class Popup {
     return this.callback(arg);
   }
 }
+class removeBackground {
+  /**@type {removeBackground|null} */
+  static instance = null;
+  showing = false;
+  /**
+   * @param {(ev: MouseEvent)=>void} callback
+   */
+  constructor(callback) {
+    if (!!removeBackground.instance) {
+      removeBackground.instance.callbacks.push(callback);
+      return removeBackground.instance;
+    }
+    /**@type {function[]} */
+    this.callbacks = [callback];
+    const div = document.createElement("div");
+    /**@type {HTMLDivElement} */
+    this.div = div;
+    div.style.position = "fixed";
+    div.style.left = `0px`;
+    div.style.top = `0px`;
+    div.style.width = `100%`;
+    div.style.height = `100%`;
+    div.style.zIndex = `0.1`;
+    div.onclick = (ev) => this.deleteWithCallback(ev);
+    document.body.appendChild(div);
+    removeBackground.instance = this;
+    this.showing = true;
+  }
+  _checkShowing() {
+    if (!this.showing) throw new Error("This background is not showing");
+  }
+
+  /**
+   * @param {MouseEvent} clickEvent
+   */
+  deleteWithCallback(clickEvent) {
+    this._checkShowing();
+    this.callbacks.forEach((f) => f(clickEvent));
+    this.delete();
+  }
+
+  delete() {
+    this._checkShowing();
+    this.div.remove();
+    this.showing = false;
+    removeBackground.instance = null;
+  }
+}
+
+class PopupCursor {
+  showing = false;
+  /**
+   * @param {string|Element|null} html
+   */
+  constructor(html) {
+    const div = document.createElement("div");
+    div.style.position = "fixed";
+    div.style.left = `${mouseX}px`;
+    div.style.top = `${mouseY}px`;
+    /**@type {HTMLDivElement} */
+    this.div = div;
+
+    if (!!html)
+      if (typeof html === "string") div.innerHTML = html;
+      else div.appendChild(html);
+    document.body.appendChild(div);
+    this.showing = true;
+    new removeBackground(() => {
+      this.close();
+    });
+  }
+  close() {
+    if (!this.showing) return;
+    this.div.remove();
+    this.showing = false;
+  }
+}

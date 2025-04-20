@@ -60,8 +60,7 @@ class MEElement {
     if (/^[0-9]+$/.test(count))
       this.craft(parseInt(count))
         .then(() => {
-          //TODO: 作業台加工じゃないものにクラフトというのはちょっと変
-          Popup.Popup("✅" + this.displayName + "のクラフトが完了しました！");
+          Popup.Popup("✅" + this.displayName + "の作成が完了しました！");
         })
         .catch((ex) => {
           alert(`[${this.displayName}] Craft Error: ${ex}`);
@@ -78,7 +77,6 @@ class MEElement {
     const popupInput = `<input id="cv-${id}" type="number">`;
     const popupButton = `<button id="cb-${id}">Enter</button>`;
     const popupDiv = `<div class="craft-request">${popupInput}${popupButton}</div>`;
-    //TODO: 同上
     const text = EncodeHTMLText(`${this.displayName}をいくつクラフトする？`);
     const popup = new Popup(`${text}<br>${popupDiv}`)
       .setWaitTime(0)
@@ -90,18 +88,18 @@ class MEElement {
   }
   craftPrompt() {
     const input = document.createElement("input");
-    const popup = showDivToCursorPos("要求量: ");
+    const popup = new PopupCursor("要求量: ");
     input.classList.add("all-transparent");
     input.style.width = "70px";
     input.addEventListener("keypress", (ev) => {
       if (ev.key === "Enter") {
         this.craftRequest(parseInt(input.value) ?? null);
-        // @ts-ignore
-        document.querySelector("#clickremovebg").click();
+        removeBackground.instance?.delete();
+        popup.close();
       }
     });
-    popup.classList.add("bg-transpoted", "craft-popup");
-    popup.appendChild(input);
+    popup.div.classList.add("bg-transpoted", "craft-popup");
+    popup.div.appendChild(input);
     input.focus();
   }
 
@@ -225,7 +223,7 @@ class MEElement {
     childs[3].innerText = "Count: ";
     childs[4].innerText = this.amount.toString();
     childs[4].classList.add("element-count");
-    const div = showDivToCursorPos(null);
+    const div = new PopupCursor(null).div;
     div.classList.add("item-info", "bg-transpoted");
     childs.forEach((e) => div.appendChild(e));
   }
@@ -420,50 +418,6 @@ function sortElements(elements, sorting) {
         return 0;
     }
   });
-}
-
-function generateDivToCursor() {
-  const div = document.createElement("div");
-  div.style.position = "fixed";
-  div.style.left = `${mouseX}px`;
-  div.style.top = `${mouseY}px`;
-  return div;
-}
-/**
- *
- * @param {(ev: MouseEvent)=>void} callback
- * @returns
- */
-function generateClickRemoveBg(callback) {
-  const div = document.createElement("div");
-  div.style.position = "fixed";
-  div.style.left = `0px`;
-  div.style.top = `0px`;
-  div.style.width = `100%`;
-  div.style.height = `100%`;
-  div.style.zIndex = `0.1`;
-  div.id = "clickremovebg";
-  div.onclick = (ev) => {
-    callback(ev);
-    div.remove();
-  };
-  document.body.appendChild(div);
-  return div;
-}
-
-/**
- * @param {string|Element|null} html
- */
-function showDivToCursorPos(html) {
-  const div = generateDivToCursor();
-  if (!!html)
-    if (typeof html === "string") div.innerHTML = html;
-    else div.appendChild(html);
-  document.body.appendChild(div);
-  generateClickRemoveBg(() => {
-    div.remove();
-  });
-  return div;
 }
 
 const TICK_TIME = 1000;
