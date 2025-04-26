@@ -19,19 +19,20 @@ class DiscordSys {
         Discord.Partials.Reaction,
       ],
     });
-    serverEvents.on("updateElements", (body) => {
-      const items = (body.items.length ?? 0) + (body.fluids.length ?? 0);
-      this.client.user.setActivity({
-        name: `${items}要素数のMEネットワーク`,
-        type: Discord.ActivityType.Playing,
-      });
-    });
+
     this.client.once("ready", async () => {
       await this.onBotReady();
     });
 
     this.client.on("interactionCreate", async (interaction) => {
       await this.onCommand(interaction);
+    });
+  }
+  async tick() {
+    const elements = await api.GetElements();
+    this.client.user.setActivity({
+      name: `${elements.length}要素数のMEネットワーク`,
+      type: Discord.ActivityType.Playing,
     });
   }
 
@@ -45,6 +46,9 @@ class DiscordSys {
   }
 
   async onBotReady() {
+    setInterval(() => {
+      this.tick();
+    }, 5000);
     await this.registCommands();
     console.log("Discord bot is running on " + this.client.user?.username);
     this.running = true;

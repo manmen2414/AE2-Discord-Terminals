@@ -17,10 +17,7 @@ const middlewares = jsonServer.defaults();
 const serverEvents = new EventEmitter();
 server.use((req, res, next) => {
   const url = req.url;
-  if (url === "/elements" && req.method === "POST") {
-    const body = req.body;
-    serverEvents.emit("updateElements", body);
-  } else if (url === "/ping") {
+  if (url === "/ping") {
     console.log("Ping Client!");
     serverEvents.emit("ping");
     return res.send("Pong!");
