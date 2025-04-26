@@ -69,7 +69,7 @@ module.exports = {
     const Elements = await api.GetElements();
     const CraftElement = Elements.find((e) => e.name.split(":")[1] === craftID);
     if (!!CraftElement) {
-      CraftElement.amount = (() => {
+      CraftElement.craftAmount = (() => {
         const amountRaw = ModalInteraction.fields.getTextInputValue("amount");
         if (/[0-9]+/.test(amountRaw)) return parseInt(amountRaw);
         else {
@@ -77,7 +77,7 @@ module.exports = {
           return -1;
         }
       })();
-      if (CraftElement.amount === -1) return;
+      if (CraftElement.craftAmount === -1) return;
       CraftElement.mode = "request";
       const res = await api.Request("/craft", CraftElement, "POST");
       await ModalInteraction.editReply(
@@ -151,7 +151,7 @@ class Terminal {
         )
       );
     }
-    const noMoreNull = (str) => (!str ? "None" : str);
+    const nullToNone = (str) => (!str ? "None" : str);
     const embed = new EmbedBuilder()
       .setColor(0x8f5ccb)
       .setTitle("ME倉庫内のアイテム・液体")
@@ -162,7 +162,7 @@ class Terminal {
     embed.addFields(
       {
         name: "Items 1",
-        value: noMoreNull(
+        value: nullToNone(
           FormatedItems.slice(
             Terminal.EMBED_LENGTH_PER_PAGE * this.page,
             Terminal.EMBED_LENGTH_PER_PAGE * (this.page + 1)
@@ -172,7 +172,7 @@ class Terminal {
       },
       {
         name: "Items 2",
-        value: noMoreNull(
+        value: nullToNone(
           FormatedItems.slice(
             Terminal.EMBED_LENGTH_PER_PAGE * (this.page + 1),
             Terminal.EMBED_LENGTH_PER_PAGE * (this.page + 2)
@@ -182,17 +182,17 @@ class Terminal {
       },
       {
         name: "Fluids 1",
-        value: noMoreNull(
+        value: nullToNone(
           FormatedFluids.slice(
             Terminal.EMBED_LENGTH_PER_PAGE * this.page,
             Terminal.EMBED_LENGTH_PER_PAGE * (this.page + 1)
-          ).join("/n")
+          ).join("\n")
         ),
         inline: true,
       },
       {
         name: "Items 2",
-        value: noMoreNull(
+        value: nullToNone(
           FormatedFluids.slice(
             Terminal.EMBED_LENGTH_PER_PAGE * (this.page + 1),
             Terminal.EMBED_LENGTH_PER_PAGE * (this.page + 2)
@@ -227,7 +227,7 @@ setInterval(async () => {
     }
   });
 }, 5000);
-const SortElements = (elements) => {
+function SortElements(elements) {
   elements.sort((a, b) => {
     if (a[sort] < b[sort]) return -1;
     if (a[sort] > b[sort]) return 1;
@@ -235,4 +235,4 @@ const SortElements = (elements) => {
   });
   if (sort === "amount") elements.reverse();
   return elements;
-};
+}

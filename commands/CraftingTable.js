@@ -116,7 +116,7 @@ setInterval(async () => {
  * @param {ChatInputCommandInteraction} interaction
  * @param {{"type":string,"tags":string[],"name":string,"amount":number,"fingerprint":string,"isCraftable":boolean,"nbt":object,"displayName":string}[]} requestedArr
  */
-const CreateEmbed = async (interaction) => {
+async function CreateEmbed(interaction) {
   await interaction.deferReply();
   api.GetElements().then((elements) => {
     const FormatedItems = [];
@@ -163,8 +163,8 @@ const CreateEmbed = async (interaction) => {
     ];
     interaction.editReply({ embeds: [embed], components: actionrows });
   });
-};
-const SortElements = (elements) => {
+}
+function SortElements(elements) {
   elements.sort((a, b) => {
     if (a[sort] < b[sort]) return -1;
     if (a[sort] > b[sort]) return 1;
@@ -172,4 +172,4 @@ const SortElements = (elements) => {
   });
   if (sort === "amount") elements.reverse();
   return elements;
-};
+}
